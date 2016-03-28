@@ -4,26 +4,27 @@
 @{
     var totalMessage = "";
 }
+@{
+    string a = Request["text1"];
+    try
+    {
+        if (a.Length > 0)
+        {
+            totalMessage = "Hello " + a;
+        }
+    }
+    catch (System.NullReferenceException e)
+    {
+        totalMessage = "";
+    }
+}
 <!DOCTYPE html>
 <html>
 <body style="background-color: beige; font-family: Verdana, Arial;">
     <form action="" method="post">
         <p>
             <label for="text1">WriteName:</label><br>
-            <input type="text" name="text1"@{ 
-                string a = Request["text1"];
-                                               try
-                                               {
-                                                   if (a.Length > 0)
-                                                   {
-                                                       totalMessage = "Hello " + a;
-                                                   }
-                                               }
-                                               catch (System.NullReferenceException e)
-                                               {
-                                                   totalMessage = "";
-                                               }
-                                           }>
+            <input type="text" name="text1">
         </p>
     </form>
     <p >@totalMessage</p>
