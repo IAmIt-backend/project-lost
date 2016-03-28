@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Lost.Models
 {
-    public enum LostOrFound
+    public enum ItemStates
     {
         Found,
         Lost,
@@ -18,6 +18,6 @@ namespace Lost.Models
         public string About { get; set; }
         public string Description { get; set; }
         public Guid UserId { get; set; }
-        public LostOrFound Status { get; set; }
+        public ItemStates ItemStatus { get; set; }
     }
 }
