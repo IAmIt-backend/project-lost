@@ -10,7 +10,6 @@ namespace Lost.Repositories
     public interface IThingRepository
     {
         void AddThing(Thing thing);
-        List<Thing> FoundThing(ObjectId id);
         List<Thing> FoundThing(string about);
 
     }
