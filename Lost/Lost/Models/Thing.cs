@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using MongoDB.Bson;
 
 namespace Lost.Models
 {
@@ -13,11 +14,11 @@ namespace Lost.Models
     }
     public class Thing
     {
-        public Guid Id { get; set; }
+        public ObjectId Id { get; set; }
         public string Place { get; set; }
         public string About { get; set; }
         public string Description { get; set; }
-        public Guid UserId { get; set; }
+        public ObjectId UserId { get; set; }
         public ItemStates ItemStatus { get; set; }
     }
 }
