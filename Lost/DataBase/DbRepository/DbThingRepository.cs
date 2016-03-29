@@ -20,9 +20,14 @@ namespace DataBase.DbRepository
             _lostThingCollection = database.GetCollection<Thing>("lostThings");
             _findThingCollection = database.GetCollection<Thing>("findThings");
         }
-        public void AddThing(Thing thing)
+        public void AddLostThing(Thing thing)
         {
             _lostThingCollection.InsertOneAsync(thing);
+        }
+
+        public void AddFindThing(Thing thing)
+        {
+            _findThingCollection.InsertOneAsync(thing);
         }
 
         public void DeleteThing(ObjectId thingId)
