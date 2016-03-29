@@ -3,11 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Lost.Models;
-using Lost.Repositories;
-using MongoDB.Bson;
 
-namespace DataBase
+namespace Business.BLClass
 {
     public enum NewStatus
     {
@@ -15,7 +12,7 @@ namespace DataBase
         lost = 1
     };
 
-    public class BusinessLogic : IBusinessLogic
+    class BusinessLogic : IBusinessLogic
     {
 
         private readonly IThingRepository _repository;

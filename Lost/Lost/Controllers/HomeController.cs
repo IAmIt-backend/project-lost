@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,33 +8,34 @@ using Lost.ViewModel;
 
 namespace Lost.Controllers
 {
-    public class HomeController : Controller
+    public class ThingController : Controller
     {
         [HttpPost]
-        public ActionResult Index(String text1)
+        public ActionResult Index(string text0, string text1, string text2, string text3) // bool found, bool lost-)
         {
-            var totalMessage = "";
-            try
+            var place = text1;
+            var about = text2;
+            var description = text3;
+            string total = "0";
+            if (text0=="Lost")
             {
-                if (text1.Length > 0)
-                {
-                    totalMessage = "Hello " + text1;
-                }
+                
             }
-            catch (System.NullReferenceException e)
+            else if(text0=="Found")
             {
-                totalMessage = "";
+
             }
             return View(new IndexViewModels
             {
-                text = totalMessage
+                text = total
             });
+
         }
 
         [HttpGet]
         public ActionResult Index()
         {
-            
+
             return View(new IndexViewModels
             {
                 text = ""
