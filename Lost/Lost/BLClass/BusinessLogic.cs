@@ -44,14 +44,13 @@ namespace Business.BLClass
             if (list2.Count == 0)
             {
                 _repository.AddLostThing(new Thing { UserId = userId, About = about, Description = description, Place = place, });
+                return list2;
             }
             else {
                 //уведомляем другого пользователя
                 return list2;
             }
         }
-
-
 
         public List<Thing> findFoundThing(string about)
         {
