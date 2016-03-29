@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Lost.ViewModel
+namespace Views.ViewModel
 {
-    public class IndexViewModels
+    public class IndexViewModel
     {
-        public string text { set; get; }
     }
 }
