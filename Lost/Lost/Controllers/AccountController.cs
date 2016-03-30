@@ -14,6 +14,7 @@ namespace Lost.Controllers
     {
         public AccountController()
         {
+
         }
 
         public AccountController(ApplicationUserManager userManager)

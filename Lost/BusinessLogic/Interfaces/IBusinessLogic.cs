@@ -12,10 +12,9 @@ namespace Business.BLInterface
     {
 
 
-        List<Thing> findFoundThing(string about);
-        List<Thing> findLostThing(string about);
-        List<Thing> addThingToLost(ObjectId userId, string about, string description, string place);
-        List<Thing> addThingToFound(ObjectId userId, string about, string description, string place);
+        List<Thing> findThing(string about, ItemStates.);
+        void addThing(ObjectId userId, string about, string description, string place);
+        void deleteThing(Thing thing);
         //void authorize();
         //void login();
 
