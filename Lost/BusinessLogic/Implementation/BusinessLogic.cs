@@ -1,23 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BusinessLogic.Interfaces;
+﻿using System.Collections.Generic;
+using BL.Interfaces;
+using BL.Interfaces;
 using DB.Interfaces;
 using DB.Models;
-using MongoDB.Bson;
 using DB.Repositories;
+using MongoDB.Bson;
 
-namespace Business.BLClass
+namespace BL.Implementation
 {
-    public enum NewStatus
-    {
-        found = 0,
-        lost = 1
-    };
-
-    class BusinessLogic : IBusinessLogic
+    public class BusinessLogic : IBusinessLogic
     {
 
         private readonly IThingRepository _repository;
@@ -28,14 +19,9 @@ namespace Business.BLClass
             _repository = new DbThingRepository();
         }
 
-        public void AddThing(ObjectId userId, string about, string description, string place)
+        public void AddThing(Thing thing)
         {
-            _repository.AddThing(new Thing
-            {
-                About = about,
-                Description = description,
-                Place = place
-            });
+            _repository.AddThing(thing);
         }
 
         public void DeleteThing(ObjectId thingId)

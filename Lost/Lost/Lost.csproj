@@ -250,6 +250,10 @@
       <Project>{63fb8c16-41f2-461a-b41a-7b1a03df3235}</Project>
       <Name>BusinessLogic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DB\DB.csproj">
+      <Project>{B283FB07-2661-442A-ABB3-FE1188C9F042}</Project>
+      <Name>DB</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
