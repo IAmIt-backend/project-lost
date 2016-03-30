@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using DB.Interfaces;
 using Lost.Models;
-using Lost.Repositories;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
 
-namespace DataBase.DbRepository
+namespace DB.Repositories
 {
     public class DbThingRepository : IThingRepository
     {
