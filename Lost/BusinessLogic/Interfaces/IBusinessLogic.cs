@@ -2,7 +2,7 @@
 using DB.Models;
 using MongoDB.Bson;
 
-namespace BusinessLogic.Interfaces
+namespace BL.Interfaces
 {
     public interface IBusinessLogic
     {

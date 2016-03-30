@@ -1,22 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BusinessLogic.Interfaces;
+﻿using System.Collections.Generic;
+using BL.Interfaces;
+using BL.Interfaces;
 using DB.Interfaces;
 using DB.Models;
-using MongoDB.Bson;
 using DB.Repositories;
+using MongoDB.Bson;
 
-namespace Business.BLClass
+namespace BL.Implementation
 {
-    public enum NewStatus
-    {
-        found = 0,
-        lost = 1
-    };
-
     public class BusinessLogic : IBusinessLogic
     {
 

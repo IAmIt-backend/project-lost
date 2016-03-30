@@ -251,7 +251,7 @@
       <Name>BusinessLogic</Name>
     </ProjectReference>
     <ProjectReference Include="..\DB\DB.csproj">
-      <Project>{b283fb07-2661-442a-abb3-fe1188c9f042}</Project>
+      <Project>{B283FB07-2661-442A-ABB3-FE1188C9F042}</Project>
       <Name>DB</Name>
     </ProjectReference>
   </ItemGroup>
