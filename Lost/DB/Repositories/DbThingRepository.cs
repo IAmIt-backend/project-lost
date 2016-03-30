@@ -24,17 +24,6 @@ namespace DB.Repositories
         {
             _thingCollection.InsertOneAsync(thing);
         }
-
-        public void AddLostThing(Thing thing)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void AddFindThing(Thing thing)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public void DeleteThing(ObjectId thingId)
         {
             Thing thing = _thingCollection.FindOneAndDelete(t => t.Id == thingId);
@@ -43,20 +32,9 @@ namespace DB.Repositories
             thing.ItemStatus = ItemStates.Returned;
             _findThingCollection.InsertOneAsync(thing);*/
         }
-
-        public List<Thing> FindLostThing(string about)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public List<Thing> FindFoundThing(string about)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public List<Thing> FindThing(string about, ItemStates states)
         {
-            return _thingCollection.AsQueryable().Where(t => t.About.Equals(about)).ToList();
+            return _thingCollection.AsQueryable().Where(t => t.About.Equals(about) && t.ItemStatus.Equals(states)).ToList();
         }
 
         public List<Thing> FindReturnedThing(string about)
