@@ -21,5 +21,6 @@ namespace Lost.Repositories
         [Obsolete("Используй FindThing")]
         List<Thing> FindFoundThing(string about);
         List<Thing> FindThing(string about, ItemStates states);
+        List<Thing> FindReturnedThing(string about);
     }
 }
