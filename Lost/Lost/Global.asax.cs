@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Lost.Utils;
+using MongoDB.Bson;
 
 namespace Lost
 {
@@ -16,6 +18,7 @@ namespace Lost
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            ModelBinders.Binders.Add(typeof(ObjectId), new ObjectIdBinder());
         }
     }
 }
