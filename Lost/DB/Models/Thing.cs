@@ -14,6 +14,7 @@ namespace DB.Models
     }
     public class Thing
     {
+
         public ObjectId Id { get; set; }
         public string Place { get; set; }
         public string About { get; set; }

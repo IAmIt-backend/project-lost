@@ -28,49 +28,29 @@ namespace Business.BLClass
             _repository = new DbThingRepository();
         }
 
-        public List<Thing> addThingToFound(ObjectId userId, string about, string description, string place)
+        public void addThing(ObjectId userId, string about, string description, string place)
         {
-            List<Thing> list1 = _repository.FindLostThing(about);
-            if (list1.Count == 0)
+            _repository.AddThing(new Thing
             {
-                _repository.AddFindThing(new Thing { UserId = userId, About = about, Description = description, Place = place, });
-                return list1;
-            }
-            else {
-                return list1;
-            }
-
-
-        }
-        
-        public List<Thing> addThingToLost(ObjectId userId, string about, string description, string place)
-        {
-            List<Thing> list2 = _repository.FindFoundThing(about);
-            if (list2.Count == 0)
-            {
-                _repository.AddLostThing(new Thing { UserId = userId, About = about, Description = description, Place = place, });
-                return list2;
-            }
-            else {
-                //уведомляем другого пользователя
-                return list2;
-            }
+                About = about,
+                Description = description,
+                Place = place
+            });
         }
 
-
-
-        public List<Thing> findFoundThing(string about)
+        public void deleteThing(ObjectId thingId)
         {
-
-            List<Thing> list3 = _repository.FindFoundThing(about);
-            return list3;
+            _repository.DeleteThing(thingId);
         }
 
-        public List<Thing> findLostThing(string about)
+        public List<Thing> findThing(string about, ItemStates itemStates)
         {
+            return _repository.FindThing(about, itemStates);
+        }
 
-            List<Thing> list4 = _repository.FindLostThing(about);
-            return list4;
-        }        
+        public List<Thing> findReturnedThing(string about)
+        {
+           return  _repository.FindReturnedThing(about);
+        }
     }
 }
