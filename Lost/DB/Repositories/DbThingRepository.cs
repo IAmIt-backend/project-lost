@@ -10,29 +10,32 @@ namespace DataBase.DbRepository
 {
     public class DbThingRepository : IThingRepository
     {
-        private readonly IMongoCollection<Thing> _lostThingCollection;
-        private readonly IMongoCollection<Thing> _findThingCollection;
+        private readonly IMongoCollection<Thing> _thingCollection;
 
         public DbThingRepository()
         {
             var client = new MongoClient();
             var database = client.GetDatabase("mongodb");
-            _lostThingCollection = database.GetCollection<Thing>("lostThings");
-            _findThingCollection = database.GetCollection<Thing>("findThings");
+            _thingCollection = database.GetCollection<Thing>("things");
         }
+        public void AddThing(Thing thing)
+        {
+            _thingCollection.InsertOneAsync(thing);
+        }
+
         public void AddLostThing(Thing thing)
         {
-            _lostThingCollection.InsertOneAsync(thing);
+            throw new System.NotImplementedException();
         }
 
         public void AddFindThing(Thing thing)
         {
-            _findThingCollection.InsertOneAsync(thing);
+            throw new System.NotImplementedException();
         }
 
         public void DeleteThing(ObjectId thingId)
         {
-            _lostThingCollection.DeleteOne(t => t.Id == thingId);
+            _thingCollection.DeleteOne(t => t.Id == thingId);
             /*thing = _findThingCollection.FindOneAndDelete(t => t.Id == thingId);
             thing.ItemStatus = ItemStates.Returned;
             _findThingCollection.InsertOneAsync(thing);*/
@@ -40,13 +43,17 @@ namespace DataBase.DbRepository
 
         public List<Thing> FindLostThing(string about)
         {
-            return _lostThingCollection.AsQueryable().Where(t => t.About.Equals(about)).ToList();
+            throw new System.NotImplementedException();
         }
 
         public List<Thing> FindFoundThing(string about)
         {
-            return _findThingCollection.AsQueryable().Where(t => t.About.Equals(about)).ToList();
+            throw new System.NotImplementedException();
+        }
 
+        public List<Thing> FindThing(string about, ItemStates states)
+        {
+            return _thingCollection.AsQueryable().Where(t => t.About.Equals(about)).ToList();
         }
     }
 }
