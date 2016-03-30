@@ -4,13 +4,13 @@ using MongoDB.Bson;
 
 namespace BusinessLogic.Interfaces
 {
-    interface IBusinessLogic
+    public interface IBusinessLogic
     {
 
 
         List<Thing> FindThing(string about, ItemStates itemStates);
         List<Thing> FindReturnedThing(string about);
-        void AddThing(ObjectId userId, string about, string description, string place);
+        void AddThing(Thing thing);
         void DeleteThing(ObjectId thingId);
         //void authorize();
         //void login();

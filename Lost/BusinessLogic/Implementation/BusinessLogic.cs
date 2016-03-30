@@ -17,7 +17,7 @@ namespace Business.BLClass
         lost = 1
     };
 
-    class BusinessLogic : IBusinessLogic
+    public class BusinessLogic : IBusinessLogic
     {
 
         private readonly IThingRepository _repository;
@@ -28,14 +28,9 @@ namespace Business.BLClass
             _repository = new DbThingRepository();
         }
 
-        public void AddThing(ObjectId userId, string about, string description, string place)
+        public void AddThing(Thing thing)
         {
-            _repository.AddThing(new Thing
-            {
-                About = about,
-                Description = description,
-                Place = place
-            });
+            _repository.AddThing(thing);
         }
 
         public void DeleteThing(ObjectId thingId)
