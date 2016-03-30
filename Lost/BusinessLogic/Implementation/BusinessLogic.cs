@@ -48,6 +48,9 @@ namespace Business.BLClass
             return _repository.FindThing(about, itemStates);
         }
 
-        
+        public List<Thing> findReturnedThing(string about)
+        {
+           return  _repository.FindReturnedThing(about);
+        }
     }
 }
