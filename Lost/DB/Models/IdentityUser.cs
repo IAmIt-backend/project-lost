@@ -9,7 +9,7 @@ namespace DB.Models
 {
     public class IdentityUser:IUser
     {
-        public string Id { get; }
+        public string Id { get; set; }
         public string UserName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }

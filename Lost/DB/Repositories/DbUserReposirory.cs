@@ -13,21 +13,22 @@ namespace DB.Repositories
 {
     public class DbUserReposirory: IUserReposirory
     {
-        private readonly IMongoCollection<IdentityUser> _userCollection;
+        private readonly IMongoCollection<User> _userCollection;
         public DbUserReposirory()
         {
             var client = new MongoClient();
             var database = client.GetDatabase("mongodb");
-            _userCollection = database.GetCollection<IdentityUser>("users");
+            _userCollection = database.GetCollection<User>("users");
         }
         public void AddUser(IdentityUser user)
         {
-            _userCollection.InsertOne(user);
+            _userCollection.InsertOne(User.GetUserFromIdentityUser(user));
         }
 
-        public IdentityUser GetUser(string id)
+        public IdentityUser GetUser(string stringId)
         {
-            return _userCollection.AsQueryable().FirstOrDefault(u => u.Id.Equals(id));
+            ObjectId id = new ObjectId(stringId);
+            return User.GetIdentityUserFromIUser(_userCollection.AsQueryable().FirstOrDefault(u => u.Id.Equals(id)));
         }
     }
 }
