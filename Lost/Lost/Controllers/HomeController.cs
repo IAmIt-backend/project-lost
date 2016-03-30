@@ -12,20 +12,7 @@ namespace Lost.Controllers
 {
     public class HomeController : Controller
     {
-        private IBusinessLogic _logic;
-
-        public IBusinessLogic Logic
-        {
-            get
-            {
-                return _logic;
-            }
-
-            set
-            {
-                _logic = value;
-            }
-        }
+        private BusinessLogic.Interfaces.IBusinessLogic _logic = new Business.BLClass.BusinessLogic();
 
         [HttpPost]
         public ActionResult ThingAdd(string status, string place, string about, string description, string submitButton, string returnButton)
@@ -56,8 +43,7 @@ namespace Lost.Controllers
                         ItemStatus = ItemStates.Found
                     };
                 }
-                //дальше будет это
-                //_logic.AddThing(thing);
+                _logic.AddThing(thing);
                 return View(new IndexViewModel
             {
                 Text = ""
