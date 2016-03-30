@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Lost.Models;
+using DB.Interfaces;
+using DB.Models;
 using MongoDB.Bson;
-using Lost.Repositories;
+using DB.Repositories;
 
 namespace Business.BLClass
 {
@@ -22,6 +23,10 @@ namespace Business.BLClass
         private readonly IThingRepository _repository;
         
         //private readonly IThingRepository _repositoryLost;
+        public BusinessLogic()
+        {
+            _repository = new DbThingRepository();
+        }
 
         public List<Thing> addThingToFound(ObjectId userId, string about, string description, string place)
         {

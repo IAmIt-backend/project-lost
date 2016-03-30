@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
-using Lost.Models;
+using DB.Models;
 using MongoDB.Bson;
 
-namespace Lost.Repositories
+namespace DB.Interfaces
 {
     public interface IThingRepository
     {
@@ -21,5 +18,6 @@ namespace Lost.Repositories
         [Obsolete("Используй FindThing")]
         List<Thing> FindFoundThing(string about);
         List<Thing> FindThing(string about, ItemStates states);
+        List<Thing> FindReturnedThing(string about);
     }
 }

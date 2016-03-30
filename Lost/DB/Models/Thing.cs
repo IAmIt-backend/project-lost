@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using MongoDB.Bson;
 
-namespace Lost.Models
+namespace DB.Models
 {
     public enum ItemStates
     {

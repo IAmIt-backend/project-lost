@@ -1,22 +1,24 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Lost.Models;
-using Lost.Repositories;
+using DB.Interfaces;
+using DB.Models;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
 
-namespace DataBase.DbRepository
+namespace DB.Repositories
 {
     public class DbThingRepository : IThingRepository
     {
         private readonly IMongoCollection<Thing> _thingCollection;
+        private readonly IMongoCollection<Thing> _returnedThingCollection;
 
         public DbThingRepository()
         {
             var client = new MongoClient();
             var database = client.GetDatabase("mongodb");
             _thingCollection = database.GetCollection<Thing>("things");
+            _returnedThingCollection = database.GetCollection<Thing>("returnedThing");
         }
         public void AddThing(Thing thing)
         {
@@ -35,7 +37,8 @@ namespace DataBase.DbRepository
 
         public void DeleteThing(ObjectId thingId)
         {
-            _thingCollection.DeleteOne(t => t.Id == thingId);
+            Thing thing = _thingCollection.FindOneAndDelete(t => t.Id == thingId);
+            _returnedThingCollection.InsertOne(thing);
             /*thing = _findThingCollection.FindOneAndDelete(t => t.Id == thingId);
             thing.ItemStatus = ItemStates.Returned;
             _findThingCollection.InsertOneAsync(thing);*/
@@ -54,6 +57,11 @@ namespace DataBase.DbRepository
         public List<Thing> FindThing(string about, ItemStates states)
         {
             return _thingCollection.AsQueryable().Where(t => t.About.Equals(about)).ToList();
+        }
+
+        public List<Thing> FindReturnedThing(string about)
+        {
+            return _returnedThingCollection.AsQueryable().Where(t => t.About.Equals(about)).ToList();
         }
     }
 }
