@@ -65,15 +65,28 @@ namespace Lost.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(string search, string searchButton, string addButton)
+        public ActionResult Index(string search, string searchButton, string addButton, string status)
         {
           
             if(searchButton != null)
             {
-        return View(new IndexViewModel
-            {
-                Text = search + " " + searchButton
-            });
+                string ans = "";
+                List<Thing> list;
+                if (status.Equals("lost"))
+                {
+                    list = _logic.FindThing(search, ItemStates.Lost);
+                }
+                else
+                {
+                    list = _logic.FindThing(search, ItemStates.Found);
+                }
+                
+                return View(new IndexViewModel
+                 {
+                        Text = ans,
+                        Things = list,
+                        Length = list.Count
+                });
             }
             else
             {
