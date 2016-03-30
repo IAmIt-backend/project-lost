@@ -1,0 +1,38 @@
+﻿@model Lost.ViewModel.IndexViewModel
+
+@*using Lost.Models;*@
+<!DOCTYPE html>
+<html>
+<body style="background-color: beige; font-family: Verdana, Arial;">
+    <form action="" method="post">
+        <p>
+            <input type="submit" name="returnButton" id="returnButton" value="Return to the previous page">
+        </p>
+          
+    <p>
+        <label >Lost...</label><br>
+        @Html.RadioButton("status", "lost")<br>
+        <label>...or Found?</label><br>
+        @Html.RadioButton("status", "found")
+  
+     </p> 
+         <p>
+            <label for="place">Place:</label><br>
+            <input id="place" name="place" cols="40" rows="3" required>
+        </p>
+        <p>
+            <label for="about">About:</label><br>
+            <input id="about" name="about" cols="40" rows="3" required>
+        </p>
+        <p>
+            <label for="description">Description:</label><br>
+            <input id="description" name="description" cols="40" rows="3" required>
+        </p>
+        <p>
+            <input type="submit" name="submitButton" id="submitButton" value="Send Message">
+        </p>
+        <p>@Model.Text</p>
+    </form>
+
+</body>
+</html>
