@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Lost.Models;
+using DB.Models;
 using MongoDB.Bson;
 
 namespace DB.Interfaces
