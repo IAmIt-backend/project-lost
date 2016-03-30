@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lost", "Lost\Lost.csproj", "{B20E096D-9DA5-483B-97E6-A6BDD4F6D5D2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{63FB8C16-41F2-461A-B41A-7B1A03DF3235}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DB", "DB\DB.csproj", "{B283FB07-2661-442A-ABB3-FE1188C9F042}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{B20E096D-9DA5-483B-97E6-A6BDD4F6D5D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B20E096D-9DA5-483B-97E6-A6BDD4F6D5D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B20E096D-9DA5-483B-97E6-A6BDD4F6D5D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63FB8C16-41F2-461A-B41A-7B1A03DF3235}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63FB8C16-41F2-461A-B41A-7B1A03DF3235}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63FB8C16-41F2-461A-B41A-7B1A03DF3235}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63FB8C16-41F2-461A-B41A-7B1A03DF3235}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B283FB07-2661-442A-ABB3-FE1188C9F042}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B283FB07-2661-442A-ABB3-FE1188C9F042}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B283FB07-2661-442A-ABB3-FE1188C9F042}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B283FB07-2661-442A-ABB3-FE1188C9F042}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

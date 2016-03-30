@@ -1,31 +1,48 @@
-﻿@{
+﻿@model Lost.ViewModel.IndexViewModel
+@{
     ViewBag.Title = "Home Page";
 }
+<!DOCTYPE html>
+<html>
+<body style="background-color: beige; font-family: Verdana, Arial;">
+    <form action="" method="post">
+        <!--     <input type="radio" name="answer" value="lost" checked>Lost thing<Br>
+          <input type="radio" name="answer" value="found">Found thing<Br>
+                <p>
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
+                       <input type="text" name="text1" id ="text1">
+                </p>
+                <p>
+                    <label for="text2">About:</label><br>
+                    <input type="text" name="text2" id="text2">
+                </p>
+                <p>
+                    <label for="text3">Description:</label><br>
+                    <input type="text" name="text3" id="text3">
+                </p>
+          <select><option value="1">Lost</option><option value = "2">Found</option></select>-->
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            <label for="text0">Status of Thing (Lost or Found)</label><br>
+            <input id="text0" name="text0" cols="40" rows="3" required>
         </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+        <p>
+            <label for="text1">Place:</label><br>
+            <input id="text1" name="text1" cols="40" rows="3" required>
+        </p>
+        <p>
+            <label for="text2">About:</label><br>
+            <input id="text2" name="text2" cols="40" rows="3" required>
+        </p>
+        <p>
+            <label for="text3">Description:</label><br>
+            <input id="text3" name="text3" cols="40" rows="3" required>
+        </p>
+        <p>
+            <input type="submit" name="text4" id="text4" value="Send Message">
+        </p>
+        <p>@Model.Text</p>
+    </form>
+
+</body>
+</html>
