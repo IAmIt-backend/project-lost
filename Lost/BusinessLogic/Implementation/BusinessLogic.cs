@@ -1,9 +1,9 @@
-﻿using Business.BLInterface;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BusinessLogic.Interfaces;
 using DB.Interfaces;
 using DB.Models;
 using MongoDB.Bson;
@@ -28,7 +28,7 @@ namespace Business.BLClass
             _repository = new DbThingRepository();
         }
 
-        public void addThing(ObjectId userId, string about, string description, string place)
+        public void AddThing(ObjectId userId, string about, string description, string place)
         {
             _repository.AddThing(new Thing
             {
@@ -38,17 +38,17 @@ namespace Business.BLClass
             });
         }
 
-        public void deleteThing(ObjectId thingId)
+        public void DeleteThing(ObjectId thingId)
         {
             _repository.DeleteThing(thingId);
         }
 
-        public List<Thing> findThing(string about, ItemStates itemStates)
+        public List<Thing> FindThing(string about, ItemStates itemStates)
         {
             return _repository.FindThing(about, itemStates);
         }
 
-        public List<Thing> findReturnedThing(string about)
+        public List<Thing> FindReturnedThing(string about)
         {
            return  _repository.FindReturnedThing(about);
         }

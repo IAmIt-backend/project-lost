@@ -1,21 +1,17 @@
-﻿using DB.Models;
+﻿using System.Collections.Generic;
+using DB.Models;
 using MongoDB.Bson;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Business.BLInterface
+namespace BusinessLogic.Interfaces
 {
     interface IBusinessLogic
     {
 
 
-        List<Thing> findThing(string about, ItemStates itemStates);
-        List<Thing> findReturnedThing(string about);
-        void addThing(ObjectId userId, string about, string description, string place);
-        void deleteThing(ObjectId thingId);
+        List<Thing> FindThing(string about, ItemStates itemStates);
+        List<Thing> FindReturnedThing(string about);
+        void AddThing(ObjectId userId, string about, string description, string place);
+        void DeleteThing(ObjectId thingId);
         //void authorize();
         //void login();
 
