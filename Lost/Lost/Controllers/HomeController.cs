@@ -17,48 +17,31 @@ namespace Lost.Controllers
         private BusinessLogic.Interfaces.IBusinessLogic _logic = new Business.BLClass.BusinessLogic();
 
         [HttpPost]
-        public ActionResult ThingAdd(string status, string place, string about, string description, string submitButton, string returnButton)
+        public ActionResult ThingAdd(ItemStates status, string place, string about, string description, string submitButton)
         {
-            //  string total = "0";
-            
-           
-            //   return this.RedirectToAction("Info", "Home");
-            if (submitButton != null) {
+         
+               if (submitButton != null) {
                 Thing thing;
-                if (status.Equals("lost"))
+               
+                thing = new Thing
                 {
-                    thing = new Thing
-                    {
-                        About = about,
-                        Description = description,
-                        Place = place,
-                        UserId = new ObjectId(User.Identity.GetUserId()),
-                        ItemStatus = ItemStates.Lost
-                    };
-                }
-                else
-                {
-                    thing = new Thing
-                    {
-                        About = about,
-                        Description = description,
-                        Place = place,
-                        UserId = new ObjectId(User.Identity.GetUserId()),
-                        ItemStatus = ItemStates.Found
-                    };
-                }
+                    About = about,
+                    Description = description,
+                    Place = place,
+                    UserId = new ObjectId(User.Identity.GetUserId()),
+                    ItemStatus = status
+                };
                 _logic.AddThing(thing);
-                return View(new IndexViewModel
-            {
-                Text = ""
-            });
+                return this.RedirectToAction("Index", "Home");
             }
             else
             {
-                return this.RedirectToAction("Index", "Home");
+                return View(new IndexViewModel
+                {
+                    Text = ""
+                });
             }
         }
-
         [HttpGet, Authorize]
         public ActionResult ThingAdd()
         {
@@ -68,22 +51,17 @@ namespace Lost.Controllers
             });
         }
 
+
+
         [HttpPost]
-        public ActionResult Index(string search, string searchButton, string addButton, string status)
+        public ActionResult Index(string search, string searchButton, string addButton, ItemStates status)
         {
-          
+         
             if(searchButton != null)
             {
                 List<Thing> list;
-                if (status.Equals("lost"))
-                {
-                    list = _logic.FindThing(search, ItemStates.Lost);
-                }
-                else
-                {
-                    list = _logic.FindThing(search, ItemStates.Found);
-                }
-                
+              
+                    list = _logic.FindThing(search, status);
                 return View(new IndexViewModel
                  {
                         Text = "",
@@ -94,10 +72,7 @@ namespace Lost.Controllers
             else
             {
                 return this.RedirectToAction("ThingAdd", "Home");
-            }
-           
-
-            
+            }   
         }
         [HttpGet]
         public ActionResult Index()

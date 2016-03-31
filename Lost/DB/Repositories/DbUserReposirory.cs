@@ -20,15 +20,23 @@ namespace DB.Repositories
             var database = client.GetDatabase("mongodb");
             _userCollection = database.GetCollection<User>("users");
         }
-        public void AddUser(IdentityUser user)
+        public IdentityUser AddUser(IdentityUser user)
         {
             _userCollection.InsertOne(User.GetUserFromIdentityUser(user));
+            return user;
         }
 
         public IdentityUser GetUser(string stringId)
         {
             ObjectId id = new ObjectId(stringId);
             return User.GetIdentityUserFromIUser(_userCollection.AsQueryable().FirstOrDefault(u => u.Id.Equals(id)));
+        }
+
+        public IdentityUser UpdateUser(IdentityUser user)
+        {
+            var update = new ObjectUpdateDefinition<User>(User.GetUserFromIdentityUser(user));
+            _userCollection.UpdateOne<User>(u=>u.Id == new ObjectId(user.Id), update);
+            return user;
         }
     }
 }

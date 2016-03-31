@@ -10,7 +10,8 @@ namespace DB.Interfaces
 {
     public interface IUserReposirory
     {
-        void AddUser(IdentityUser user);
+        IdentityUser AddUser(IdentityUser user);
         IdentityUser GetUser(string id);
+        IdentityUser UpdateUser(IdentityUser user);
     }
 }
