@@ -15,7 +15,7 @@ namespace DB.Models
         public string Email { get; set; }
         public string Phone { get; set; }
 
-        public static User GetUserFromIdentityUser(IdentityUser identityUser)
+        public static User GetUserFromIdentityUser(IdentityUser2 identityUser)
         {
             User user = new User();
             user.Email = identityUser.Email;
@@ -26,9 +26,9 @@ namespace DB.Models
             return user;
         }
 
-        public static IdentityUser GetIdentityUserFromIUser(User user)
+        public static IdentityUser2 GetIdentityUserFromIUser(User user)
         {
-            IdentityUser ideuser = new IdentityUser();
+            IdentityUser2 ideuser = new IdentityUser2();
             ideuser.Email = user.Email;
             ideuser.LastName = user.LastName;
             ideuser.Phone = user.Phone;

@@ -9,11 +9,11 @@ namespace BusinessLogic.Interfaces
 {
     public interface IUserLogic
     {
-        Task AddUserAsync(IdentityUser user);
-        Task<IdentityUser> GetUserAsync(string id);
-        Task<IdentityUser> UpdateUserAsync(IdentityUser user);
-        void AddUser(IdentityUser user);
-        IdentityUser GetUser(string id);
-        IdentityUser UpdateUser(IdentityUser user);
+        Task AddUserAsync(IdentityUser2 user);
+        Task<IdentityUser2> GetUserAsync(string id);
+        Task<IdentityUser2> UpdateUserAsync(IdentityUser2 user);
+        void AddUser(IdentityUser2 user);
+        IdentityUser2 GetUser(string id);
+        IdentityUser2 UpdateUser(IdentityUser2 user);
     }
 }

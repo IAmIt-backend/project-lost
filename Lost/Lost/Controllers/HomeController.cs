@@ -148,7 +148,7 @@ namespace Lost.Controllers
         public ActionResult UserProfile(string userId, string thingId)
         {
 
-               IdentityUser user = new IdentityUser();
+               IdentityUser2 user = new IdentityUser2();
                 user = _userlogic.GetUser(userId);
                 return View(new IndexViewModel
                 {
@@ -162,6 +162,8 @@ namespace Lost.Controllers
            
             });
         }
+      
 
-    }
+
+        }
 }

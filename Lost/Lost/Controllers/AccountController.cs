@@ -6,12 +6,17 @@ using Lost.ViewModel;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using AspNet.Identity.MongoDB;
+using DB.Models;
+
 
 namespace Lost.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
+        private BusinessLogic.Interfaces.IUserLogic _userlogic = new BusinessLogic.Implementation.UserLogic();
+
         public AccountController()
         {
 
@@ -110,6 +115,21 @@ namespace Lost.Controllers
                 _userManager = null;
             }
             base.Dispose(disposing);
+        }
+        [HttpPost]
+        public ActionResult RegisterSuccess(string fname, string lname, string email, string phone)
+        {
+            IdentityUser2 user = new IdentityUser2();
+            user.Id = User.Identity.GetUserId();
+            user.Email = email;
+            user.LastName = lname;
+            user.UserName = fname;
+            user.Phone = phone;
+            _userlogic.AddUser(user);
+            return View(new IndexViewModel
+            {
+        
+            });
         }
 
         #region Helpers

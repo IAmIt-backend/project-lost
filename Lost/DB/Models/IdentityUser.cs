@@ -7,7 +7,7 @@ using Microsoft.AspNet.Identity;
 
 namespace DB.Models
 {
-    public class IdentityUser : IUser
+    public class IdentityUser2 : IUser
     {
         public string Id { get; set; }
         public string UserName { get; set; }

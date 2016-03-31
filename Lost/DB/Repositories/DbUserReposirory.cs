@@ -19,35 +19,35 @@ namespace DB.Repositories
             var database = MongoClientFactory.GetMongoDatabase();
             _userCollection = database.GetCollection<User>("users");
         }
-        public IdentityUser AddUser(IdentityUser user)
+        public IdentityUser2 AddUser(IdentityUser2 user)
         {
             _userCollection.InsertOne(User.GetUserFromIdentityUser(user));
             return user;
         }
-        async public Task<IdentityUser> AddUserAsync(IdentityUser user)
+        async public Task<IdentityUser2> AddUserAsync(IdentityUser2 user)
         {
             await _userCollection.InsertOneAsync(User.GetUserFromIdentityUser(user));
             return user;
         }
 
-        public IdentityUser GetUser(string stringId)
+        public IdentityUser2 GetUser(string stringId)
         {
             ObjectId id = new ObjectId(stringId);
             return User.GetIdentityUserFromIUser(_userCollection.AsQueryable().FirstOrDefault(u => u.Id.Equals(id)));
         }
-        async public Task<IdentityUser> GetUserAsync(string stringId)
+        async public Task<IdentityUser2> GetUserAsync(string stringId)
         {
             ObjectId id = new ObjectId(stringId);
             return User.GetIdentityUserFromIUser(await _userCollection.AsQueryable().FirstOrDefaultAsync(u => u.Id.Equals(id)));
         }
 
-        public IdentityUser UpdateUser(IdentityUser user)
+        public IdentityUser2 UpdateUser(IdentityUser2 user)
         {
             var update = new ObjectUpdateDefinition<User>(User.GetUserFromIdentityUser(user));
             _userCollection.UpdateOne<User>(u=>u.Id == new ObjectId(user.Id), update);
             return user;
         }
-        async public Task<IdentityUser> UpdateUserAsync(IdentityUser user)
+        async public Task<IdentityUser2> UpdateUserAsync(IdentityUser2 user)
         {
             var update = new ObjectUpdateDefinition<User>(User.GetUserFromIdentityUser(user));
             await _userCollection.UpdateOneAsync<User>(u => u.Id == new ObjectId(user.Id), update);
