@@ -79,8 +79,16 @@ namespace Business.BLClass
             return await _repository.GetThingByIdAsync(thingId);
         }
 
-        
+        async public Task<Thing> UpdateThingAsync(Thing thing)
+        {
+            return await _repository.UpdateThingAsync(thing);
+        }
 
-      
+        public Thing UpdateThing(Thing thing)
+        {
+            return _repository.UpdateThing(thing);
+        }
+        
+        
     }
 }
