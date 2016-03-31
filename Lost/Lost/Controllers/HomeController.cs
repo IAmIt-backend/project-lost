@@ -14,7 +14,8 @@ namespace Lost.Controllers
 {
     public class HomeController : Controller
     {
-        private BusinessLogic.Interfaces.IBusinessLogic _logic = new Business.BLClass.BusinessLogic();
+        private BusinessLogic.Interfaces.IBusinessLogic _logic = new BusinessLogic.Implementation.BusinessLogic();
+        private BusinessLogic.Interfaces.IUserLogic _userlogic = new BusinessLogic.Implementation.UserLogic();
 
         [HttpPost]
         public ActionResult ThingAdd(ItemStates status, string place, string about, string description, string submitButton)
@@ -100,20 +101,29 @@ namespace Lost.Controllers
             });
         }
         [HttpPost, Authorize]
-        public ActionResult ThingInfo(Thing thing, string deleteButton, string editButton)
+        public ActionResult ThingInfo(string status, string about, string description, string place, string deleteButton, string editButton, string thingId)
         {
-
-            return View(new IndexViewModel
+              if (deleteButton != null)
             {
-
-            });
-        }
-        [HttpGet]
-        public ActionResult UserProfile(string userId)
-        {
-
-            /*    User user = new User();
-                user = _logic.GetUser(userId);
+                Thing thing = _logic.DeleteThing(new ObjectId(thingId));
+                return this.RedirectToAction("Index", "Home");
+            }
+            else if(editButton != null)
+            {
+                Thing thing = new Thing
+                {
+                    About = about,
+                    Id = new ObjectId(thingId),
+                    Description = description,
+                    Place = place,
+                    UserId = new ObjectId(User.Identity.GetUserId()),
+                    ItemStatus = ItemStates.Lost
+                };
+                if (status.Equals("Found")) {
+                    thing.ItemStatus = ItemStates.Found;                
+                }
+                 thing = _logic.UpdateThing(thing);
+                
                 return View(new IndexViewModel
                 {
                     //Text = thingId,
@@ -122,10 +132,36 @@ namespace Lost.Controllers
                     Description = thing.Description,
                     Place = thing.Place,
                     Status = thing.ItemStatus,
-                    UserId = thing.UserId*/
-            return View(new IndexViewModel
+                    UserId = thing.UserId
+                });
+             }
+            else
             {
+                return View(new IndexViewModel
+                {
+                 
+                });
+            }
+            
+        }
+        [HttpGet]
+        public ActionResult UserProfile(string userId, string thingId)
+        {
+
+               IdentityUser user = new IdentityUser();
+                user = _userlogic.GetUser(userId);
+                return View(new IndexViewModel
+                {
+                    //Text = thingId,
+                    Id = user.Id,
+                    UserName = user.UserName,
+                    LastName = user.LastName,
+                    Email = user.Email,
+                    Phone = user.Phone,   
+                    ThingId = new ObjectId(thingId)         
+           
             });
         }
+
     }
 }

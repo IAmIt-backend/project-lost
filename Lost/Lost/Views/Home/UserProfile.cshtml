@@ -8,7 +8,7 @@
 <body style="background-color: beige; font-family: Verdana, Arial;">
     <form action="" method="post">
         <p>
-            @Html.ActionLink("Return", "ThingInfo", "Home", new { thingId = @p.Id }, null)
+            @Html.ActionLink("Return", "ThingInfo", "Home", new { thingId = Model.ThingId }, null)
         </p>
         <style>
             textarea {
@@ -17,19 +17,19 @@
         </style>
         <p>
             <label for="fname">First name:</label><br>
-            <textarea id="fname" name="fname" cols="40" rows="3" disabled></textarea>
+            <textarea id="fname" name="fname" cols="40" rows="3" disabled>@Model.UserName</textarea>
         </p>
         <p>
             <label for="lname">Last name:</label><br>
-            <textarea id="lname" name="lname" cols="40" rows="3" disabled></textarea>
+            <textarea id="lname" name="lname" cols="40" rows="3" disabled>@Model.LastName</textarea>
         </p>
         <p>
-            <label for="email">Email:</label><br> @*title == about*@
-            <textarea id="email" name="email" cols="40" rows="3" disabled></textarea>
+            <label for="email">Email:</label><br> 
+            <textarea id="email" name="email" cols="40" rows="3" disabled>@Model.Email</textarea>
         </p>
         <p>
             <label for="phone">Phone:</label><br>
-            <textarea id="phone" name="phone" cols="40" rows="3" disabled></textarea>
+            <textarea id="phone" name="phone" cols="40" rows="3" disabled>@Model.Phone</textarea>
         </p>
         <p>
             <input type="submit" name="editButton" id="editButton" value="Edit">

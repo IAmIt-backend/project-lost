@@ -10,7 +10,7 @@ using MongoDB.Bson;
 using DB.Repositories;
 
 
-namespace Business.BLClass
+namespace BusinessLogic.Implementation
 {
 
     public enum NewStatus

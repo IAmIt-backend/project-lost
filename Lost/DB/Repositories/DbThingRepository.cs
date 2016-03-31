@@ -55,8 +55,10 @@ namespace DB.Repositories
         {
             /*var status = _thingCollection.Find(t => t.Id == thing.Id).First().ItemStatus;
             var about = _thingCollection.Find(t => t.Id == thing.Id).First().About;*/
-            var update = new ObjectUpdateDefinition<Thing>(thing);
-            _thingCollection.UpdateOne<Thing>(t=> t.Id == thing.Id,update);
+            /*var update = new ObjectUpdateDefinition<Thing>(thing);
+            _thingCollection.UpdateOne<Thing>(t=> t.Id == thing.Id,update);*/
+            DeleteThing(thing.Id);
+            AddThing(thing);
             return thing;
         }
         async public Task<Thing> UpdateThingAsync(Thing thing)

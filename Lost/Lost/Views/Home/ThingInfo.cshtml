@@ -20,39 +20,51 @@
         </style>
         <p>
             <label for="status">Status of thing:</label><br>
-            <textarea id="status" name="status" cols="40" rows="3" disabled>@Model.Status</textarea>
-        </p>
-      
+            <input id="status" name="status" cols="40" rows="3" value=@Model.Status >
+        </p>     
+        <p>
+    @{
+        if (Model.UserId != null && User.Identity.GetUserId() != null) { }
+        if (Model.UserId.Equals(new ObjectId(User.Identity.GetUserId())))
+        {
         <p>
             <label for="about">Title:</label><br> @*title == about*@
-            <textarea id="about" name="about" cols="40" rows="3" disabled>@Model.About</textarea>
+            <input type="text" id="about" name="about" cols="40" rows="3" value=@Model.About>
         </p>
         <p>
             <label for="description">Description:</label><br>
-            <textarea id="description" name="description" cols="40" rows="3" disabled>@Model.Description</textarea>
+            <input id="description" name="description" cols="40" rows="3" value=@Model.Description>
         </p>
         <p>
-        <label for="place">Place, where this thing was found or lost:</label><br>
-        <textarea id="place" name="place" cols="40" rows="3" disabled>@Model.Place</textarea>
+            <label for="place">Place, where this thing was found or lost:</label><br>
+            <input id="place" name="place" cols="40" rows="3" value=@Model.Place>
         </p>
-        <p>
-            @{
-                if (Model.UserId != null && User.Identity.GetUserId() != null) { }
-                if (Model.UserId.Equals(new ObjectId(User.Identity.GetUserId())))
-                {
                     <input type="submit" name="deleteButton" id="deleteButton" value="Delete from list">
-                    <input type="submit" name="editButton" id="editButton" value="Edit">
-                }
-                else
-                {
+            <input type="submit" name="editButton" id="editButton" value="Edit">
+        }
+        else
+        {
+            <p>
+                <label for="about">Title:</label><br> @*title == about*@
+                <input type="text" id="about" name="about" cols="40" rows="3" value=@Model.About disabled>
+            </p>
+            <p>
+                <label for="description">Description:</label><br>
+                <input id="description" name="description" cols="40" rows="3" value=@Model.Description disabled>
+            </p>
+            <p>
+                <label for="place">Place, where this thing was found or lost:</label><br>
+                <input id="place" name="place" cols="40" rows="3" value=@Model.Place disabled>
+            </p>
                     <input type="submit" name="deleteButton" id="deleteButton" value="Delete from list" disabled>
                     <input type="submit" name="editButton" id="editButton" value="Edit" disabled>
                     } 
                 }
-            }
+            
            
             
-         @Html.ActionLink("View user page", "UserProfile", "Home", new { userId = Model.UserId }, null)
+         @Html.ActionLink("View user page", "UserProfile", "Home", new { userId = Model.UserId, thingId = Model.ThingId }, null)
+         @Html.ActionLink("123", "ThingInfo", "Home", new { thingId = Model.ThingId }, null)
         </p>
        @* <p>@Model.Text</p>*@
         
