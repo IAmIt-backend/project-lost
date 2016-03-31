@@ -38,10 +38,15 @@ namespace Lost.ViewModel
     }
     public class RegisterSuccessViewModel
     {
+        [Required]
         public string Id { get; set; }
+        [Required]
         public string UserName { get; set; }
+        [Required]
         public string LastName { get; set; }
+        [Required]
         public string Email { get; set; }
+        [Required]
         public string Phone { get; set; }
     }
 }

@@ -1,8 +1,8 @@
-﻿@model Lost.ViewModel.LoginViewModel
+﻿@model Lost.ViewModel.RegisterSuccessViewModel
 @{
     ViewBag.Title = "RegisterSuccess";
 }
-@using (Html.BeginForm("Login", "Account", FormMethod.Post))
+@using (Html.BeginForm("RegisterSuccess", "Account", FormMethod.Post, new { @class = "form-horizontal" }))
 {
 
 <p>Registration completed successfully</p>
@@ -10,22 +10,40 @@
     <p>
        <h3> Now complete your profile</h3>
     </p>
-    <p>
-        <label for="fname">First name:</label><br>
-        <input id="fname" name="fname" cols="40" rows="3" required>
-    </p>
-    <p>
-        <label for="lname">Last name:</label><br>
-        <input id="lname" name="lname" cols="40" rows="3" required>
-    </p>
-    <p>
-        <label for="email">Email:</label><br>
-        <input id="email" name="email" cols="40" rows="3" required>
-    </p>
-    <p>
-        <label for="phone">Phone:</label><br>
-        <input id="phone" name="phone" cols="40" rows="3" required>
-    </p>
+
+        <div class="form-group">
+            
+            <div class="col-md-10">
+                <label for="fname">First name:</label>
+                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+           
+            <div class="col-md-10">
+                <label for="fname">Last name:</label>
+                 @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+           
+            <div class="col-md-10">
+                <label for="fname">Email:</label>
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            
+            <div class="col-md-10">
+                <label for="fname">Phone:</label>
+                 @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
     <p>
       <input type="submit" name="completeButton" id="completeButton" value="Complete">

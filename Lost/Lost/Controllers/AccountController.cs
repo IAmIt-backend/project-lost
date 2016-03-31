@@ -117,14 +117,14 @@ namespace Lost.Controllers
             base.Dispose(disposing);
         }
         [HttpPost]
-        public ActionResult RegisterSuccess(string fname, string lname, string email, string phone)
+        public ActionResult RegisterSuccess(RegisterSuccessViewModel model)
         {
             IdentityUser2 user = new IdentityUser2();
             user.Id = User.Identity.GetUserId();
-            user.Email = email;
-            user.LastName = lname;
-            user.UserName = fname;
-            user.Phone = phone;
+            user.Email = model.Email;
+            user.LastName = model.LastName;
+            user.UserName = model.UserName;
+            user.Phone = model.Phone;
             _userlogic.AddUser(user);
             return View(new IndexViewModel
             {
