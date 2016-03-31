@@ -17,8 +17,7 @@ namespace DB.Repositories
 
         public DbThingReturnedRepository()
         {
-            var client = new MongoClient();
-            var database = client.GetDatabase("mongodb");
+            var database = MongoClientFactory.GetMongoDatabase();
             _returnedThingCollection = database.GetCollection<Thing>("returnedThing");
         }
 

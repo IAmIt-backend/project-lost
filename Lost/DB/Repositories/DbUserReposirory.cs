@@ -16,8 +16,7 @@ namespace DB.Repositories
         private readonly IMongoCollection<User> _userCollection;
         public DbUserReposirory()
         {
-            var client = new MongoClient();
-            var database = client.GetDatabase("mongodb");
+            var database = MongoClientFactory.GetMongoDatabase();
             _userCollection = database.GetCollection<User>("users");
         }
         public IdentityUser AddUser(IdentityUser user)
