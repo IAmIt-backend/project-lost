@@ -48,5 +48,10 @@ namespace Business.BLClass
         {
             return  _retrepository.FindThing(about);
         }
+
+        public Thing GetThingById(ObjectId thingId)
+        {
+            return _repository.GetThingById(thingId);
+        }
     }
 }
