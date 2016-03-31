@@ -11,6 +11,7 @@ using DB.Repositories;
 
 namespace Business.BLClass
 {
+
     public enum NewStatus
     {
         found = 0,
@@ -20,13 +21,9 @@ namespace Business.BLClass
     public class BusinessLogic : IBusinessLogic
     {
 
-        private readonly IThingRepository _repository;
+        private readonly IThingRepository _repository= new DbThingRepository();
         
-        //private readonly IThingRepository _repositoryLost;
-        public BusinessLogic()
-        {
-            _repository = new DbThingRepository();
-        }
+
 
         public void AddThing(Thing thing)
         {
@@ -45,7 +42,8 @@ namespace Business.BLClass
 
         public List<Thing> FindReturnedThing(string about)
         {
-           return  _repository.FindReturnedThing(about);
+           // Добавить другой репозиторий
+           return  _repository.FindThing(about, ItemStates.Found);
         }
     }
 }

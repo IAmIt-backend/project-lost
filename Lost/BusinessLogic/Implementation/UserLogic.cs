@@ -21,14 +21,7 @@ namespace BusinessLogic.Implementation
 
         public void AddUser(IdentityUser user)
         {
-            _urepository.AddUser(new IdentityUser
-            {
-                Email = user.Email,
-                Phone = user.Phone,
-                LastName = user.LastName,
-                UserName = user.UserName,
-                Id = user.Id
-            });
+            _urepository.AddUser(user);
         }
 
         public IdentityUser GetUser(string id)

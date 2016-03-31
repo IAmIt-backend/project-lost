@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IThingReturnedRepository.cs" />
     <Compile Include="Interfaces\IUserReposirory.cs" />
     <Compile Include="Models\IdentityUser.cs" />
     <Compile Include="Interfaces\IThingRepository.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\DbThingRepository.cs" />
+    <Compile Include="Repositories\DbThingReturnedRepository.cs" />
     <Compile Include="Repositories\DbUserReposirory.cs" />
   </ItemGroup>
   <ItemGroup>
