@@ -14,7 +14,7 @@
         <div class="form-group">
             
             <div class="col-md-10">
-                <label for="fname">First name:</label>
+                <label for="UserName">First name:</label>
                 @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
                 @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
             </div>
@@ -23,7 +23,7 @@
         <div class="form-group">
            
             <div class="col-md-10">
-                <label for="fname">Last name:</label>
+                <label for="LastName">Last name:</label>
                  @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
                 @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
             </div>
@@ -31,7 +31,7 @@
         <div class="form-group">
            
             <div class="col-md-10">
-                <label for="fname">Email:</label>
+                <label for="Email">Email:</label>
                 @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
                 @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
             </div>
@@ -39,7 +39,7 @@
         <div class="form-group">
             
             <div class="col-md-10">
-                <label for="fname">Phone:</label>
+                <label for="Phone">Phone:</label>
                  @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
                 @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger" })
             </div>

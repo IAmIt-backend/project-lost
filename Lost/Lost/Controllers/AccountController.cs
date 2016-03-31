@@ -117,6 +117,7 @@ namespace Lost.Controllers
             base.Dispose(disposing);
         }
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult RegisterSuccess(RegisterSuccessViewModel model)
         {
             IdentityUser2 user = new IdentityUser2();
