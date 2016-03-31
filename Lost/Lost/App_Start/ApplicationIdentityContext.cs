@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AspNet.Identity.MongoDB;
+using DB;
 using Lost.Models;
 using MongoDB.Driver;
 
@@ -11,10 +12,9 @@ namespace Lost
 	{
 		public static ApplicationIdentityContext Create()
 		{
-			// todo add settings where appropriate to switch server & database in your own application
-			var client = new MongoClient();
-			var database = client.GetDatabase("mydb");
-			var users = database.GetCollection<ApplicationUser>("users");
+            // todo add settings where appropriate to switch server & database in your own application
+            var database = MongoClientFactory.GetMongoDatabase();
+            var users = database.GetCollection<ApplicationUser>("users");
 			var roles = database.GetCollection<IdentityRole>("roles");
 			return new ApplicationIdentityContext(users, roles);
 		}
