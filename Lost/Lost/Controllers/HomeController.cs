@@ -82,6 +82,20 @@ namespace Lost.Controllers
                 Text = ""
             });
         }
+        [HttpGet]
+        public ActionResult ThingInfo(string thingId)
+        {
+            
+            return View(new IndexViewModel
+            {
+              Text = thingId/*  ThingId = new ObjectId(thingId),
+                About = "",
+                Description = "",
+                Place = "",
+                Status = ItemStates.Lost,
+                UserId = new ObjectId(thingId)*/
+            });
+        }
 
     }
 }

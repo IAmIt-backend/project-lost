@@ -44,7 +44,7 @@ namespace Lost.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
+       // [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
             if (!ModelState.IsValid)
@@ -74,7 +74,7 @@ namespace Lost.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
+      //  [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
@@ -95,7 +95,7 @@ namespace Lost.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+     //   [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut();
