@@ -11,7 +11,12 @@ namespace DB.Interfaces
     public interface IThingReturnedRepository
     {
         Thing AddThing(Thing thing);
+        Task<Thing> AddThingAsync(Thing thing);
         Thing DeleteThing(ObjectId thingid);
+        Task<Thing> DeleteThingAsync(ObjectId thingid);
+
         List<Thing> FindThing(string about);
+        Task<List<Thing> > FindThingAsync(string about);
+
     }
 }
