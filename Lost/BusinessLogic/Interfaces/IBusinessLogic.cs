@@ -12,6 +12,7 @@ namespace BusinessLogic.Interfaces
         List<Thing> FindReturnedThing(string about);
         void AddThing(Thing thing);
         void DeleteThing(ObjectId thingId);
+        Thing GetThingById(ObjectId thingId);
         //void authorize();
         //void login();
 

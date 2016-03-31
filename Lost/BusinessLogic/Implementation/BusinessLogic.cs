@@ -22,6 +22,7 @@ namespace Business.BLClass
     {
 
         private readonly IThingRepository _repository= new DbThingRepository();
+        private readonly IThingReturnedRepository _retrepository = new DbThingReturnedRepository();
         
 
 
@@ -32,7 +33,10 @@ namespace Business.BLClass
 
         public void DeleteThing(ObjectId thingId)
         {
-            _repository.DeleteThing(thingId);
+            
+            var thing =_repository.DeleteThing(thingId);
+            _retrepository.AddThing(thing);
+
         }
 
         public List<Thing> FindThing(string about, ItemStates itemStates)
@@ -42,8 +46,12 @@ namespace Business.BLClass
 
         public List<Thing> FindReturnedThing(string about)
         {
-           // Добавить другой репозиторий
-           return  _repository.FindThing(about, ItemStates.Found);
+            return  _retrepository.FindThing(about);
+        }
+
+        public Thing GetThingById(ObjectId thingId)
+        {
+            return _repository.GetThingById(thingId);
         }
     }
 }

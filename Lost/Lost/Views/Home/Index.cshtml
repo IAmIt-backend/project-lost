@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Home Page";
 }
+@using DB.Models
 <!DOCTYPE html>
 <html>
 <body style="background-color: beige; font-family: Verdana, Arial;">
@@ -9,37 +10,40 @@
 
         <p>
             <label>Lost...</label><br>
-            @Html.RadioButton("status", "lost")<br>
+            @Html.RadioButton("status", ItemStates.Lost, true)<br>
             <label>...or Found?</label><br>
-            @Html.RadioButton("status", "found")
+            @Html.RadioButton("status", ItemStates.Found)
 
         </p>
         <p>
             <label for="search">Search:</label><br>
-            <input id="search" name="search" cols="40" rows="3">
+            <input type="search" id="search" name="search" cols="40" rows="3">
             <input type="submit" name="searchButton" id="searchButton" value="Search">
-        </p>
-        <p>
-            <input type="submit" name="addButton" id="addButton" value="AddYourThing">
+            <label>Or</label>
+            <input type="submit" name="addButton" id="addButton" value="Add Your Thing">
         </p>
         <p>@Model.Text</p>
         @if (Model.Length > 0)
         {
-            <table>
+            <header><h4>About Description Place</h4></header>
+         
+                    foreach (var p in Model.Things)
+                    {
+                      <article>@p.About     @p.Description     @p.Place   </article>  
+                     
+                   <!--   <table>
                 <thead><tr><th>About     </th><th>Description     </th><th>Place     </th></tr></thead>
                 <tbody>
-                    @foreach (var p in Model.Things)
-                    {
-                        <tr>
-                            <td>@p.About</td>
-                            <td>@p.Description</td>
-                            <td>@p.Place</td>
+                      <tr>
+                    <td></td> 
+                    <td></td>
+                    <td></td>
                             @*<td>@p.UserId</td>*@
                         </tr>
-                    }
+                   
                 </tbody>
-            </table>
-        } 
+            </table>--> 
+        }  }
     </form>
 
 </body>
