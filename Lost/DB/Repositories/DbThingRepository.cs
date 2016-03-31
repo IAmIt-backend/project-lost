@@ -41,5 +41,6 @@ namespace DB.Repositories
         {
             return _returnedThingCollection.AsQueryable().Where(t => t.About.Equals(about)).ToList();
         }
+        
     }
 }

@@ -7,6 +7,8 @@ using System.Web.Mvc;
 using BusinessLogic.Interfaces;
 using Lost.ViewModel;
 using DB.Models;
+using Microsoft.AspNet.Identity;
+using MongoDB.Bson;
 
 namespace Lost.Controllers
 {
@@ -30,6 +32,7 @@ namespace Lost.Controllers
                         About = about,
                         Description = description,
                         Place = place,
+                        UserId = new ObjectId(User.Identity.GetUserId()),
                         ItemStatus = ItemStates.Lost
                     };
                 }
@@ -40,6 +43,7 @@ namespace Lost.Controllers
                         About = about,
                         Description = description,
                         Place = place,
+                        UserId = new ObjectId(User.Identity.GetUserId()),
                         ItemStatus = ItemStates.Found
                     };
                 }
@@ -70,7 +74,6 @@ namespace Lost.Controllers
           
             if(searchButton != null)
             {
-                string ans = "";
                 List<Thing> list;
                 if (status.Equals("lost"))
                 {
@@ -83,7 +86,7 @@ namespace Lost.Controllers
                 
                 return View(new IndexViewModel
                  {
-                        Text = ans,
+                        Text = "",
                         Things = list,
                         Length = list.Count
                 });
