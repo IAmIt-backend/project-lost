@@ -85,10 +85,10 @@ namespace Lost.Controllers
         [HttpGet]
         public ActionResult ThingInfo(string thingId)
         {
-            
+            _logic.GetThingById(new ObjectId(thingId));
             return View(new IndexViewModel
             {
-              Text = thingId/*  ThingId = new ObjectId(thingId),
+              /* ThingId = new ObjectId(thingId),
                 About = "",
                 Description = "",
                 Place = "",
