@@ -1,4 +1,7 @@
-﻿@model Lost.ViewModel.IndexViewModel
+﻿@using Microsoft.AspNet.Identity;
+@using MongoDB.Bson;
+
+@model Lost.ViewModel.IndexViewModel
 @{
     ViewBag.Title = "Thing Info";
 }
@@ -7,6 +10,9 @@
 <html>
 <body style="background-color: beige; font-family: Verdana, Arial;">
     <form action="" method="post">
+        <p>
+            @Html.ActionLink("Return", "Index", "Home")
+        </p>
         <style>
             textarea{
                 resize: none
@@ -16,10 +22,7 @@
             <label for="status">Status of thing:</label><br>
             <textarea id="status" name="status" cols="40" rows="3" disabled>@Model.Status</textarea>
         </p>
-        <p>
-            <label for="place">Place, where this thing was found or lost:</label><br>
-            <textarea id="place" name="place" cols="40" rows="3" disabled>@Model.Place</textarea>
-        </p>
+      
         <p>
             <label for="about">Title:</label><br> @*title == about*@
             <textarea id="about" name="about" cols="40" rows="3" disabled>@Model.About</textarea>
@@ -29,11 +32,27 @@
             <textarea id="description" name="description" cols="40" rows="3" disabled>@Model.Description</textarea>
         </p>
         <p>
-            <input type="submit" name="deleteButton" id="deleteButton" value="Delete from list">
-            <input type="submit" name="editButton" id="editButton" value="Edit">
-            <input type="submit" name="viewButton" id="viewButton" value="View user page">
+        <label for="place">Place, where this thing was found or lost:</label><br>
+        <textarea id="place" name="place" cols="40" rows="3" disabled>@Model.Place</textarea>
         </p>
-        <p>@Model.Text</p>
+        <p>
+            @{
+                if (Model.UserId.Equals(new ObjectId(User.Identity.GetUserId())))
+                {
+                    <input type="submit" name="deleteButton" id="deleteButton" value="Delete from list">
+                    <input type="submit" name="editButton" id="editButton" value="Edit">
+                }
+                else
+                {
+                    <input type="submit" name="deleteButton" id="deleteButton" value="Delete from list" disabled>
+                    <input type="submit" name="editButton" id="editButton" value="Edit" disabled>
+                }
+            }
+           
+            
+         @Html.ActionLink("View user page", "UserProfile", "Home", new { userId = Model.UserId }, null)
+        </p>
+       @* <p>@Model.Text</p>*@
         
     </form>
 

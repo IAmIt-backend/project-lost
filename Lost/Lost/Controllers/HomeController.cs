@@ -19,10 +19,11 @@ namespace Lost.Controllers
         [HttpPost]
         public ActionResult ThingAdd(ItemStates status, string place, string about, string description, string submitButton)
         {
-         
-               if (submitButton != null) {
+
+            if (submitButton != null)
+            {
                 Thing thing;
-               
+
                 thing = new Thing
                 {
                     About = about,
@@ -56,23 +57,23 @@ namespace Lost.Controllers
         [HttpPost]
         public ActionResult Index(string search, string searchButton, string addButton, ItemStates status)
         {
-         
-            if(searchButton != null)
+
+            if (searchButton != null)
             {
                 List<Thing> list = new List<Thing>();
-              
+
                 list = _logic.FindThing(search, status);
                 return View(new IndexViewModel
-                 {
-                        Text = "",
-                        Things = list,
-                        Length = list.Count
+                {
+                    Text = "",
+                    Things = list,
+                    Length = list.Count
                 });
             }
             else
             {
                 return this.RedirectToAction("ThingAdd", "Home");
-            }   
+            }
         }
         [HttpGet]
         public ActionResult Index()
@@ -89,15 +90,42 @@ namespace Lost.Controllers
             thing = _logic.GetThingById(new ObjectId(thingId));
             return View(new IndexViewModel
             {
-              Text = thingId,
-              ThingId = thing.Id,
-              About = thing.About,
-              Description = thing.Description,
-              Place = thing.Place,
-              Status = thing.ItemStatus,
-              UserId = thing.UserId
+                //Text = thingId,
+                ThingId = thing.Id,
+                About = thing.About,
+                Description = thing.Description,
+                Place = thing.Place,
+                Status = thing.ItemStatus,
+                UserId = thing.UserId
             });
         }
+        [HttpPost, Authorize]
+        public ActionResult ThingInfo(Thing thing, string deleteButton, string editButton)
+        {
 
+            return View(new IndexViewModel
+            {
+
+            });
+        }
+        [HttpGet]
+        public ActionResult UserProfile(string userId)
+        {
+
+            /*    User user = new User();
+                user = _logic.GetUser(userId);
+                return View(new IndexViewModel
+                {
+                    //Text = thingId,
+                    ThingId = thing.Id,
+                    About = thing.About,
+                    Description = thing.Description,
+                    Place = thing.Place,
+                    Status = thing.ItemStatus,
+                    UserId = thing.UserId*/
+            return View(new IndexViewModel
+            {
+            });
+        }
     }
 }

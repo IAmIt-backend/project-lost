@@ -30,19 +30,7 @@
                     foreach (var p in Model.Things)
                     {
                       <article>@Html.ActionLink(@p.About + " " + @p.Description + " " + @p.Place, "ThingInfo", "Home",  new {thingId = @p.Id}, null)</article>  
-                     
-                   <!--   <table>
-                <thead><tr><th>About     </th><th>Description     </th><th>Place     </th></tr></thead>
-                <tbody>
-                      <tr>
-                    <td></td> 
-                    <td></td>
-                    <td></td>
-                            @*<td>@p.UserId</td>*@
-                        </tr>
-                   
-                </tbody>
-            </table>--> 
+                 
         }  }
     </form>
 
