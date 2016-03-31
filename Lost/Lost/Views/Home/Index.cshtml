@@ -12,7 +12,7 @@
             <label>Lost...</label><br>
             @Html.RadioButton("status", ItemStates.Lost, true)<br>
             <label>...or Found?</label><br>
-            @Html.RadioButton("status", ItemStates.Found)
+            @Html.RadioButton("status", ItemStates.Found, false)
 
         </p>
         <p>
@@ -29,20 +29,8 @@
          
                     foreach (var p in Model.Things)
                     {
-                      <article>@p.About     @p.Description     @p.Place   </article>  
-                     
-                   <!--   <table>
-                <thead><tr><th>About     </th><th>Description     </th><th>Place     </th></tr></thead>
-                <tbody>
-                      <tr>
-                    <td></td> 
-                    <td></td>
-                    <td></td>
-                            @*<td>@p.UserId</td>*@
-                        </tr>
-                   
-                </tbody>
-            </table>--> 
+                      <article>@Html.ActionLink(@p.About + " " + @p.Description + " " + @p.Place, "ThingInfo", "Home",  new {thingId = @p.Id}, null)</article>  
+                 
         }  }
     </form>
 
