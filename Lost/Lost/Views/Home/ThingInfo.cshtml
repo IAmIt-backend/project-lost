@@ -37,6 +37,7 @@
         </p>
         <p>
             @{
+                if (Model.UserId != null && User.Identity.GetUserId() != null) { }
                 if (Model.UserId.Equals(new ObjectId(User.Identity.GetUserId())))
                 {
                     <input type="submit" name="deleteButton" id="deleteButton" value="Delete from list">
@@ -46,6 +47,7 @@
                 {
                     <input type="submit" name="deleteButton" id="deleteButton" value="Delete from list" disabled>
                     <input type="submit" name="editButton" id="editButton" value="Edit" disabled>
+                    } 
                 }
             }
            
