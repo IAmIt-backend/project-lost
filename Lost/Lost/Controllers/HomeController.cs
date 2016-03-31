@@ -59,9 +59,9 @@ namespace Lost.Controllers
          
             if(searchButton != null)
             {
-                List<Thing> list;
+                List<Thing> list = new List<Thing>();
               
-                    list = _logic.FindThing(search, status);
+                list = _logic.FindThing(search, status);
                 return View(new IndexViewModel
                  {
                         Text = "",
@@ -85,15 +85,17 @@ namespace Lost.Controllers
         [HttpGet]
         public ActionResult ThingInfo(string thingId)
         {
-            
+            Thing thing = new Thing();
+            thing = _logic.GetThingById(new ObjectId(thingId));
             return View(new IndexViewModel
             {
-              Text = thingId/*  ThingId = new ObjectId(thingId),
-                About = "",
-                Description = "",
-                Place = "",
-                Status = ItemStates.Lost,
-                UserId = new ObjectId(thingId)*/
+              Text = thingId,
+              ThingId = thing.Id,
+              About = thing.About,
+              Description = thing.Description,
+              Place = thing.Place,
+              Status = thing.ItemStatus,
+              UserId = thing.UserId
             });
         }
 
