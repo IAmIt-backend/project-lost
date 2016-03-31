@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using DB.Interfaces;
 using DB.Models;
@@ -33,6 +34,11 @@ namespace DB.Repositories
         public List<Thing> FindThing(string about, ItemStates states)
         {
             return _thingCollection.AsQueryable().Where(t => t.About.Equals(about) && t.ItemStatus.Equals(states)).ToList();
+        }
+
+        public Thing GetThingById(ObjectId id)
+        {
+            return _thingCollection.AsQueryable().Where(t=>t.Id == id).First();
         }
 
         public Thing UpdateThing(Thing thing)

@@ -28,5 +28,10 @@ namespace BusinessLogic.Implementation
         {
             return _urepository.GetUser(id);
         }
+
+        public IdentityUser UpdateUser(IdentityUser user)
+        {
+            return _urepository.UpdateUser(user);
+        }
     }
 }

@@ -11,5 +11,6 @@ namespace BusinessLogic.Interfaces
     {
         void AddUser(IdentityUser user);
         IdentityUser GetUser(string id);
+        IdentityUser UpdateUser(IdentityUser user);
     }
 }

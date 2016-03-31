@@ -11,5 +11,6 @@ namespace DB.Interfaces
         Thing DeleteThing(ObjectId thingid);
         List<Thing> FindThing(string about, ItemStates states);
         Thing UpdateThing(Thing thing);
+        Thing GetThingById(ObjectId id);
     }
 }
