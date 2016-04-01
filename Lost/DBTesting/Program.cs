@@ -25,8 +25,8 @@ namespace DBTesting
             user.UserName = "Lost";
             user.Phone = "+123456789";
             //user = await _urepository.AddUserAsync(user);
-            user.UserId = new ObjectId("56fe349d0c60c92010174877");
-            user.Id = "56fe349d0c60c92010174877";
+            user.UserId = new ObjectId("56fe3f190c60c943c4f62702");
+            user.Id = "56fe3f190c60c943c4f62702";
             Thing thing = new Thing();
             for (int i = 0; i < 10; i++)
             {
