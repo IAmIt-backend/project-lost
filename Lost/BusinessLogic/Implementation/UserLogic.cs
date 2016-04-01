@@ -21,30 +21,30 @@ namespace BusinessLogic.Implementation
 
 
 
-        public  void AddUser(IdentityUser2 user)//---
+        public  void AddUser(User user)//---
         {
             _urepository.AddUser(user);
         }
-        public IdentityUser2 GetUser(string id)//---
+        public User GetUser(string id)//---
         {
             return _urepository.GetUser(id);
         }
-        public IdentityUser2 UpdateUser(IdentityUser2 user)//---
+        public User UpdateUser(User user)//---
         {
             return _urepository.UpdateUser(user);
         }
 
 
 
-        public async Task AddUserAsync(IdentityUser2 user)
+        public async Task AddUserAsync(User user)
         {
             await _urepository.AddUserAsync(user);
         }
-        public async Task<IdentityUser2> UpdateUserAsync(IdentityUser2 user)
+        public async Task<User> UpdateUserAsync(User user)
         {
             return await _urepository.UpdateUserAsync(user);
         }
-        public async Task<IdentityUser2> GetUserAsync(string id)
+        public async Task<User> GetUserAsync(string id)
         {
             return await _urepository.GetUserAsync(id);
         }
