@@ -8,30 +8,57 @@
 <body style="background-color: beige; font-family: Verdana, Arial;">
     <form action="" method="post">
 
-        <p>
-            <label>Lost...</label><br>
-            @Html.RadioButton("status", ItemStates.Lost, true)<br>
-            <label>...or Found?</label><br>
-            @Html.RadioButton("status", ItemStates.Found, false)
+        <div class="form-group">
+            <div class="col-md-10">
+                <label class = "col-md-2 control-label">Lost...</label><br>
+                @Html.RadioButton("status", ItemStates.Lost, true)<br>
+                <label class = "col-md-2 control-label">...or Found?</label><br>
+                @Html.RadioButton("status", ItemStates.Found, false)
 
-        </p>
-        <p>
-            <label for="search">Search:</label><br>
-            <input type="search" id="search" name="search" cols="40" rows="3">
-            <input type="submit" name="searchButton" id="searchButton" value="Search">
-            <label>Or</label>
-            <input type="submit" name="addButton" id="addButton" value="Add Your Thing">
-        </p>
-        <p>@Model.Text</p>
-        @if (Model.Length > 0)
-        {
-            <header><h4>About Description Place</h4></header>
+            </div>
+        </div>
+      <br>
          
-                    foreach (var p in Model.Things)
-                    {
-                      <article>@Html.ActionLink(@p.About + " " + @p.Description + " " + @p.Place, "ThingInfo", "Home",  new {thingId = @p.Id}, null)</article>  
-                 
-        }  }
+        <div class="form-group">
+          
+            <div class="col-md-10">
+                <br>
+                <input class="form-control" type="search" id="search" name="search" placeholder="Search:">
+                
+            </div>
+        </div>
+        <div class="form-group">
+
+            <div class="col-md-10">
+                <br>
+                <input class="form-control" type="submit" name="searchButton" id="searchButton" value="Search">
+            </div>
+        </div>
+        <div class="form-group">
+
+            <div class="col-md-10">
+              <br>
+                <input class="form-control" type="submit" name="addButton" id="addButton" value="Add Your Thing">
+            </div>
+        </div>
+        
+       
+
+        <div class="form-group">
+            <div class="col-md-10">
+            @if (Model.Length > 0)
+            {
+                <header><h4>About Description Place</h4></header>
+
+                foreach (var p in Model.Things)
+                {
+                    <article class="list-row">@Html.ActionLink(@p.About + " " + @p.Description + " " + @p.Place, "ThingInfo", "Home", new { thingId = @p.Id }, null)</article>
+
+                }
+            }
+        </div>
+            </div>
+        <p>@Model.Text</p>
     </form>
 
 </body>

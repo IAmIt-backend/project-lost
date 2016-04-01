@@ -14,53 +14,81 @@
         <p>
             @Html.ActionLink("Return", "Index", "Home", new { thingId = Model.ThingId }, null)
         </p>
-   @{ 
+   @{
+       var UIGUI = User.Identity.GetUserId();
 
+
+       if (Model.Id != null && UIGUI != null && Model.Id == UIGUI)
+       {      
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="fname">First name:</label><br>
+              <div class="col-md-10">
+                <input class="form-control" id="fname" name="fname" value=@Model.UserName>
+              </div>
+            </div>
+            <br>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="lname">Last name:</label><br>
+                    <div class="col-md-10">
+                        <input class="form-control" id="lname" name="lname" value=@Model.LastName>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="email">Email:</label><br>
+                    <div class="col-md-10">
+                        <input class="form-control" id="email" name="email" value=@Model.Email>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="phone">Phone:</label><br>
+                    <div class="col-md-10">
+                        <input class="form-control" id="phone" name="phone" value=@Model.Phone>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label class="col-md-2 control-label"></label><br>
+                    <div class="col-md-10">
+                        <input class="form-control" type="submit" name="editButton" id="editButton" value="Edit">
+                    </div>
+                </div>
+        
       
-           if (Model.Id != null && User.Identity.GetUserId() != null && Model.Id == User.Identity.GetUserId())
-           {
-        <p>
-            <label for="fname">First name:</label><br>
-            <input type="text" id="fname" name="fname" cols="40" rows="3"  value=@Model.UserName>
-        </p>
-        <p>
-            <label for="lname">Last name:</label><br>
-            <input type="text" id="lname" name="lname" cols="40" rows="3"  value=@Model.LastName>
-        </p>
-        <p>
-            <label for="email">Email:</label><br> 
-            <input type="text" id="email" name="email" cols="40" rows="3" value=@Model.Email>
-        </p>
-        <p>
-            <label for="phone">Phone:</label><br>
-            <input type="text" id="phone" name="phone" cols="40" rows="3" value=@Model.Phone>
-        </p>
-        <p>
-            <input type="submit" name="editButton" id="editButton" value="Edit">
-        </p>
+      
+      
       @*  <p>@Model.Text</p>*@
-           }
-           else
-           {
-            <p>
-                <label for="fname">First name:</label><br>
-                <input type="text" id="fname" name="fname" cols="40" rows="3" value=@Model.UserName disabled>
-            </p>
-            <p>
-                <label for="lname">Last name:</label><br>
-                <input type="text" id="lname" name="lname" cols="40" rows="3" value=@Model.LastName disabled>
-            </p>
-            <p>
-                <label for="email">Email:</label><br>
-                <input type="text" id="email" name="email" cols="40" rows="3" value=@Model.Email disabled>
-            </p>
-            <p>
-                <label for="phone">Phone:</label><br>
-                <input type="text" id="phone" name="phone" cols="40" rows="3" value=@Model.Phone disabled>
-            </p>
-            <p>
-                <input type="submit" name="editButton" id="editButton" value="Edit">
-            </p>
+       }
+       else
+       {
+        <div class="form-group">
+            <label class="col-md-2 control-label" for="fname">First name:</label><br>
+            <div class="col-md-10">
+                <input class="form-control" id="fname" name="fname" value=@Model.UserName disabled>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <label class="col-md-2 control-label" for="lname">Last name:</label><br>
+            <div class="col-md-10">
+                <input class="form-control" id="lname" name="lname" value=@Model.LastName disabled>
+            </div>
+        </div>
+        <br>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="email">Email:</label><br>
+                    <div class="col-md-10">
+                        <input class="form-control" id="email" name="email" value=@Model.Email disabled>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="phone">Phone:</label><br>
+                    <div class="col-md-10">
+                        <input class="form-control" id="phone" name="phone" value=@Model.Phone disabled>
+                    </div>
+                </div>
        }
 
 }
