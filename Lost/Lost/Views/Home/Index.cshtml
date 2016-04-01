@@ -25,13 +25,25 @@
         <p>@Model.Text</p>
         @if (Model.Length > 0)
         {
-            <header><h4>About Description Place</h4></header>
-         
-                    foreach (var p in Model.Things)
+            <table>
+                <tr>
+                    <td><h4>About </h4></td>
+                    <td><h4>Description</h4></td>
+                    <td><h4> Place</h4></td>
+                </tr>
+                    @foreach (var p in Model.Things)
                     {
-                      <article>@Html.ActionLink(@p.About + " " + @p.Description + " " + @p.Place, "ThingInfo", "Home",  new {thingId = @p.Id}, null)</article>  
-                 
-        }  }
+                    <tr>
+                        <td>@Html.ActionLink(@p.About, "ThingInfo", "Home", new {thingId = @p.Id}, null)</td>
+                        <td>@Html.ActionLink(@p.Description, "ThingInfo", "Home", new {thingId = @p.Id}, null)</td>
+                        <td>@Html.ActionLink(@p.Place, "ThingInfo", "Home", new { thingId = @p.Id }, null)</td>
+                    </tr>
+                    
+                    @*<article>@Html.ActionLink(@p.About + " " + @p.Description + " " + @p.Place, "ThingInfo", "Home", new { thingId = @p.Id }, null)</article>*@
+
+                    }
+</table>
+        }
     </form>
 
 </body>
