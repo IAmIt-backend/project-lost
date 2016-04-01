@@ -3,7 +3,7 @@
 @using DB.Models;
 <!DOCTYPE html>
 <html>
-<body style="background-color: beige; font-family: Verdana, Arial;">
+<body style="background-color: white; font-family: Verdana, Arial;">
     <form class="form-horizontal" action="" method="post">
         <div class="form-group">
             <div class="col-md-10">
@@ -15,36 +15,36 @@
         </p>
 
         <div class="form-group">
-            <div class="col-md-10">
-                <label class="col-md-2 control-label">Lost...</label>
+            <div class="col-md-10 horizontal-spacing">
+                <label class="control-label">Lost...</label>
                 @Html.RadioButton("status", ItemStates.Lost, true)
-                <label class="col-md-2 control-label">...or Found?</label>
+                <label class="control-label">...or Found?</label>
                 @Html.RadioButton("status", ItemStates.Found, false)
-
+              
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
 
-                <input class="form-control" id="place" name="place" placeholder="Place" required>
+                <input class="btn" id="place" name="place" placeholder="Place" required>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
 
-                <input class="form-control" id="about" name="about" placeholder="Title" required>
+                <input class="btn" id="about" name="about" placeholder="Title" required>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
 
-                <input class="form-control" id="description" name="description" placeholder="Description" required>
+                <input class="btn" id="description" name="description" placeholder="Description" required>
             </div>
         </div>
         <div class="form-group">
             <div class="col-md-10">
 
-                <input class="form-control" type="submit" name="submitButton" id="submitButton" value="AddThing">
+                <input class="btn btn-success" type="submit" name="submitButton" id="submitButton" value="AddThing">
             </div>
         </div>
 
