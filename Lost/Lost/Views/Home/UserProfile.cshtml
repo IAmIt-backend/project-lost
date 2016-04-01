@@ -12,13 +12,12 @@
 <body style="background-color: beige; font-family: Verdana, Arial;">
     <form action="" method="post">
         <p>
-            @Html.ActionLink("Return", "ThingInfo", "Home", new { thingId = Model.ThingId }, null)
+            @Html.ActionLink("Return", "Index", "Home", new { thingId = Model.ThingId }, null)
         </p>
    @{ 
 
-       if (Model.UserId != null && User.Identity.GetUserId() != null)
-       {
-           if (Model.UserId.Equals(new ObjectId(User.Identity.GetUserId())))
+      
+           if (Model.Id != null && User.Identity.GetUserId() != null && Model.Id == User.Identity.GetUserId())
            {
         <p>
             <label for="fname">First name:</label><br>
@@ -59,8 +58,11 @@
                 <label for="phone">Phone:</label><br>
                 <input type="text" id="phone" name="phone" cols="40" rows="3" value=@Model.Phone disabled>
             </p>
-           }
+            <p>
+                <input type="submit" name="editButton" id="editButton" value="Edit">
+            </p>
        }
+
 }
     </form>
 

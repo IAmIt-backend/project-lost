@@ -145,25 +145,60 @@ namespace Lost.Controllers
             
         }
         [HttpGet]
-        public ActionResult UserProfile(string userId, string thingId)
+        public ActionResult UserProfile( string userId)
         {
 
                User user = new User();
+            var a = User.Identity.GetUserId();
+            var b = userId;
                 user = _userlogic.GetUser(userId);
                 return View(new IndexViewModel
                 {
                     //Text = thingId,
-                    Id = user.Id,
+                    Id = userId,
                     UserName = user.UserName,
                     LastName = user.LastName,
                     Email = user.Email,
-                    Phone = user.Phone,   
-                    ThingId = new ObjectId(thingId)         
+                    Phone = user.Phone  
+                   
            
             });
         }
-      
+        [HttpPost]
+        public ActionResult UserProfile(string fname, string lname, string email, string phone, string userId, string thingId, string editButton)
+        {
 
+            if (editButton != null)
+            {
+                User user = new User
+                {
+                    LastName = lname,
+                    Id = userId,
+                    Phone = phone,
+                    UserName = fname,
+                    Email = email
+                };
+               
+                user = _userlogic.UpdateUser(user);
 
+                return View(new IndexViewModel
+                {
+                    LastName = lname,
+                    Id = userId,
+                    Phone = phone,
+                    UserName = fname,
+                    Email = email
+                });
+            }
+            else
+            {
+                return View(new IndexViewModel
+                {
+                });
+                }
         }
+
+
+
+    }
 }
