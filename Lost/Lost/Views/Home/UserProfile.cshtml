@@ -10,86 +10,59 @@
 <!DOCTYPE html>
 <html>
 <body style="background-color: beige; font-family: Verdana, Arial;">
-    <form action="" method="post">
+    <form class="form-horizontal" action="" method="post">
         <p>@Model.Text</p>
         <p>
-            @Html.ActionLink("Return", "Index", "Home", new { thingId = Model.ThingId }, null)
+            @Html.ActionLink("< Return", "Index", "Home", new { thingId = Model.ThingId }, new { @class = "btn btn-default" })
         </p>
-   @{
-       var UIGUI = User.Identity.GetUserId();
-       if (Model.Id != null && UIGUI != null && Model.Id == UIGUI)
-       {      
+        @{
+            var UIGUI = User.Identity.GetUserId();
+            var isMy = Model.UserId != null && UIGUI != null && Model.UserId.Equals(new ObjectId(UIGUI));
+            var strDisabledAttribute = !isMy ? "disabled" : "";
+
             <div class="form-group">
-                <label class="col-md-2 control-label" for="fname">First name:</label><br>
-              <div class="col-md-10">
-                <input class="form-control" id="fname" name="fname" value=@Model.UserName>
-              </div>
+                <label class="col-md-2 control-label" for="fname">First name:</label>
+                <div class="col-md-10">
+                    <input class="form-control" id="fname" name="fname" value=@Model.UserName>
+                </div>
             </div>
-            <br>
+
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="lname">Last name:</label><br>
+                    <label class="col-md-2 control-label" for="lname">Last name:</label>
                     <div class="col-md-10">
                         <input class="form-control" id="lname" name="lname" value=@Model.LastName>
                     </div>
                 </div>
-                <br>
+
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="email">Email:</label><br>
+                    <label class="col-md-2 control-label" for="email">Email:</label>
                     <div class="col-md-10">
                         <input class="form-control" id="email" name="email" value=@Model.Email>
                     </div>
                 </div>
-                <br>
+
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="phone">Phone:</label><br>
+                    <label class="col-md-2 control-label" for="phone">Phone:</label>
                     <div class="col-md-10">
                         <input class="form-control" id="phone" name="phone" value=@Model.Phone>
                     </div>
                 </div>
-                <br>
+            if (isMy)
+            {
                 <div class="form-group">
-                    <label class="col-md-2 control-label"></label><br>
+                    <label class="col-md-2 control-label"></label>
                     <div class="col-md-10">
                         <input class="form-control" type="submit" name="editButton" id="editButton" value="Edit">
                     </div>
                 </div>
-        
-      
-      
-      
-    
-       }
-       else
-       {
-        <div class="form-group">
-            <label class="col-md-2 control-label" for="fname">First name:</label><br>
-            <div class="col-md-10">
-                <input class="form-control" id="fname" name="fname" value=@Model.UserName disabled>
-            </div>
-        </div>
-        <br>
-        <div class="form-group">
-            <label class="col-md-2 control-label" for="lname">Last name:</label><br>
-            <div class="col-md-10">
-                <input class="form-control" id="lname" name="lname" value=@Model.LastName disabled>
-            </div>
-        </div>
-        <br>
-                <div class="form-group">
-                    <label class="col-md-2 control-label" for="email">Email:</label><br>
-                    <div class="col-md-10">
-                        <input class="form-control" id="email" name="email" value=@Model.Email disabled>
-                    </div>
-                </div>
-                <br>
-                <div class="form-group">
-                    <label class="col-md-2 control-label" for="phone">Phone:</label><br>
-                    <div class="col-md-10">
-                        <input class="form-control" id="phone" name="phone" value=@Model.Phone disabled>
-                    </div>
-                </div>
-       }   }
-    
+
+            }
+
+
+
+        }
+
+
 
 
     </form>
