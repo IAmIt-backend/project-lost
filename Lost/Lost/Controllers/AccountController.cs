@@ -86,8 +86,16 @@ namespace Lost.Controllers
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
+               // var userId = user.Id;
                 if (result.Succeeded)
                 {
+                    var myUser = new IdentityUser2();
+                    myUser.Email = model.Email;
+                    myUser.UserName = model.UserName;
+                    myUser.LastName = model.LastName;
+                    myUser.Phone = model.Phone;
+                    myUser.Id = user.Id;
+                    _userlogic.AddUser(myUser);
                     return View("RegisterSuccess");
                 }
                 else
@@ -116,22 +124,7 @@ namespace Lost.Controllers
             }
             base.Dispose(disposing);
         }
-        [HttpPost]
-        [AllowAnonymous]
-        public ActionResult RegisterSuccess(RegisterSuccessViewModel model)
-        {
-            IdentityUser2 user = new IdentityUser2();
-            user.Id = User.Identity.GetUserId();
-            user.Email = model.Email;
-            user.LastName = model.LastName;
-            user.UserName = model.UserName;
-            user.Phone = model.Phone;
-            _userlogic.AddUser(user);
-            return View(new IndexViewModel
-            {
-        
-            });
-        }
+       
 
         #region Helpers
 
