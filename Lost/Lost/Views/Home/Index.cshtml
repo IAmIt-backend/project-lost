@@ -5,14 +5,14 @@
 @using DB.Models
 <!DOCTYPE html>
 <html>
-<body style="background-color: beige; font-family: Verdana, Arial;">
+<body style="background-color: white; font-family: Verdana, Arial;">
     <form class="form-horizontal" action="" method="post">
         <div class="form-group">
-            <div class="col-md-10">
-                <label class="control-label">Lost...</label>
-                @Html.RadioButton("status", ItemStates.Lost, true, new { @class = "horizontal-spacing" })
-                <label class="control-label">...or Found?</label>
-                @Html.RadioButton("status", ItemStates.Found, false, new { @class = "horizontal-spacing" })
+            <div class="col-md-10 horizontal-spacing">
+                <label class="control-label">Lost</label>
+                @Html.RadioButton("status", ItemStates.Lost, true, new { @class = "" })
+                <label class="control-label">or Found?</label>
+                @Html.RadioButton("status", ItemStates.Found, false, new { @class = "" })
 
             </div>
         </div>
@@ -22,7 +22,7 @@
 
             <div class="col-md-10">
 
-                <input class="btn" type="search" id="search" name="search" placeholder="Search:">
+                <input class="btn horizontal-spacing" type="search" id="search" name="search" placeholder="Search:">
                 <input class="btn btn-info" type="submit" name="searchButton" id="searchButton" value="Search">
                 <input  class="btn btn-success" type="submit" name="addButton" id="addButton" value="Add Your Thing">
             </div>

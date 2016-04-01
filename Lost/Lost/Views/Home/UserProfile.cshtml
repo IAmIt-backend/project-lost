@@ -9,7 +9,7 @@
 @using DB.Models
 <!DOCTYPE html>
 <html>
-<body style="background-color: beige; font-family: Verdana, Arial;">
+<body style="background-color: white; font-family: Verdana, Arial;">
     <form class="form-horizontal" action="" method="post">
         <p>@Model.Text</p>
         <p>
@@ -23,28 +23,28 @@
             <div class="form-group">
                 <label class="col-md-2 control-label" for="fname">First name:</label>
                 <div class="col-md-10">
-                    <input class="form-control" id="fname" name="fname" value=@Model.UserName>
+                    <input class="btn" id="fname" name="fname" value=@Model.UserName @strDisabledAttribute>
                 </div>
             </div>
 
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="lname">Last name:</label>
                     <div class="col-md-10">
-                        <input class="form-control" id="lname" name="lname" value=@Model.LastName>
+                        <input class="btn" id="lname" name="lname" value=@Model.LastName @strDisabledAttribute>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="email">Email:</label>
                     <div class="col-md-10">
-                        <input class="form-control" id="email" name="email" value=@Model.Email>
+                        <input class="btn" id="email" name="email" value=@Model.Email @strDisabledAttribute>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="phone">Phone:</label>
                     <div class="col-md-10">
-                        <input class="form-control" id="phone" name="phone" value=@Model.Phone>
+                        <input class="btn" id="phone" name="phone" value=@Model.Phone @strDisabledAttribute>
                     </div>
                 </div>
             if (isMy)
@@ -52,7 +52,7 @@
                 <div class="form-group">
                     <label class="col-md-2 control-label"></label>
                     <div class="col-md-10">
-                        <input class="form-control" type="submit" name="editButton" id="editButton" value="Edit">
+                        <input class="btn btn-warning" type="submit" name="editButton" id="editButton" value="Edit">
                     </div>
                 </div>
 
