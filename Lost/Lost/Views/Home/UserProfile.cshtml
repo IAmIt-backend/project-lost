@@ -17,7 +17,7 @@
         </p>
         @{
             var UIGUI = User.Identity.GetUserId();
-            var isMy = Model.UserId != null && UIGUI != null && Model.UserId.Equals(new ObjectId(UIGUI));
+            var isMy = Model.Id != null && UIGUI != null && Model.Id == UIGUI;
             var strDisabledAttribute = !isMy ? "disabled" : "";
 
             <div class="form-group">
