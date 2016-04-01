@@ -3,7 +3,6 @@
 @{
     ViewBag.Title = "Log in";
 }
-<body style="background:url(../image1.jpg);  background-size: 100%; font-family:Verdana, Arial;">
     <h2>@ViewBag.Title.</h2>
     <div class="row">
         <div class="col-md-8">
@@ -38,17 +37,16 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Log in" class="btn btn-default" />
+                            <input type="submit" value="Log in" class = "btn btn-success "/>
                         </div>
                     </div>
                     <p>
-                        @Html.ActionLink("Register a new user?", "Register")
+                        @Html.ActionLink("Register a new user?", "Register", new {@style = "color:white" })
                     </p>
                 }
             </section>
         </div>
     </div>
-</body>
     @section scripts {
         @Scripts.Render("~/bundles/jqueryval")
     }

@@ -36,14 +36,14 @@
                     foreach (var p in Model.Things)
                     {
                        
-                            <div class="col-sm-6 col-md-4 vertical-spacing ">
-                                <div class="thumbnail border-radius" >
+                            <div class="col-sm-6 col-md-4 vertical-spacing " >
+                                <div class="thumbnail border-radius">
                                   
-                                    <div class="caption">
+                                    <div class="caption" >
                                         <h3>@p.About</h3>
                                         <p>@p.Description</p>
                                         <p>@p.Place</p>
-                                        <p>@Html.ActionLink("View", "ThingInfo", "Home", new { thingId = @p.Id }, new { @class = "btn btn-default " })</p>
+                                        <p>@Html.ActionLink("View", "ThingInfo", "Home", new { thingId = @p.Id }, new { @class = "btn btn-default ", @style = "background-color:#8080ff" })</p>
                                     </div>
                                 </div>
                             </div>

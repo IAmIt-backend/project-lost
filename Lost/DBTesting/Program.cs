@@ -25,10 +25,11 @@ namespace DBTesting
             user.UserName = "Lost";
             user.Phone = "+123456789";
             //user = await _urepository.AddUserAsync(user);
-            user.UserId = new ObjectId("56fe3f190c60c943c4f62702");
-            user.Id = "56fe3f190c60c943c4f62702";
+            user.UserId = new ObjectId("56fe5d09192d0c230c3cbb9d");
+            user.Id = "56fe5d09192d0c230c3cbb9d";
+            int n = 5;
             Thing thing = new Thing();
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < n; i++)
             {
                 thing.About = "Car";
                 thing.Place = "Minsk street " + (i + 1);
@@ -38,7 +39,7 @@ namespace DBTesting
                 thing.UserId = user.UserId;
                 await _things.AddThingAsync(thing);
             }
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < n; i++)
             {
                 thing.About = "Cat";
                 thing.Place = "Moskow street " + (i + 1);
@@ -48,7 +49,7 @@ namespace DBTesting
                 thing.UserId = user.UserId;
                 await _things.AddThingAsync(thing);
             }
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < n; i++)
             {
                 thing.About = "Dog";
                 thing.Place = "Pekin street " + (i + 1);
@@ -58,7 +59,7 @@ namespace DBTesting
                 thing.UserId = user.UserId;
                 await _things.AddThingAsync(thing);
             }
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < n; i++)
             {
                 thing.About = "Phone";
                 thing.Place = "London street " + (i + 1);
