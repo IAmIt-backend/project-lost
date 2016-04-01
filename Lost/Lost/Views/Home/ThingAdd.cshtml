@@ -4,33 +4,51 @@
 <!DOCTYPE html>
 <html>
 <body style="background-color: beige; font-family: Verdana, Arial;">
-    <form action="" method="post">
+    <form class="form-horizontal" action="" method="post">
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.ActionLink("< Return", "Index", "Home", new { @class = "btn btn-default" })
+            </div>
+        </div>
         <p>
-        @Html.ActionLink("Return", "Index", "Home")        
+
         </p>
-          
-    <p>
-        <label >Lost...</label><br>
-        @Html.RadioButton("status", ItemStates.Lost, true)<br>
-        <label>...or Found?</label><br>
-        @Html.RadioButton("status", ItemStates.Found, false)
-  
-     </p> 
-         <p>
-            <label for="place">Place:</label><br>
-            <input id="place" name="place" cols="40" rows="3" required>
-        </p>
-        <p>
-            <label for="about">Title:</label><br> @*title == about*@
-            <input id="about" name="about" cols="40" rows="3" required>
-        </p>
-        <p>
-            <label for="description">Description:</label><br>
-            <input id="description" name="description" cols="40" rows="3" required>
-        </p>
-        <p>
-          <input type="submit" name="submitButton" id="submitButton" value="AddThing">
-        </p>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                <label class="col-md-2 control-label">Lost...</label>
+                @Html.RadioButton("status", ItemStates.Lost, true)
+                <label class="col-md-2 control-label">...or Found?</label>
+                @Html.RadioButton("status", ItemStates.Found, false)
+
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+
+                <input class="form-control" id="place" name="place" placeholder="Place" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+
+                <input class="form-control" id="about" name="about" placeholder="Title" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+
+                <input class="form-control" id="description" name="description" placeholder="Description" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+
+                <input class="form-control" type="submit" name="submitButton" id="submitButton" value="AddThing">
+            </div>
+        </div>
+
+
         <p>@Model.Text</p>
     </form>
 

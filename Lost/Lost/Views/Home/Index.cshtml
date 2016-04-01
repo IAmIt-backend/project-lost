@@ -6,32 +6,53 @@
 <!DOCTYPE html>
 <html>
 <body style="background-color: beige; font-family: Verdana, Arial;">
-    <form action="" method="post">
+    <form class="form-horizontal" action="" method="post">
+        <div class="form-group">
+            <div class="col-md-10">
+                <label class="control-label">Lost...</label>
+                @Html.RadioButton("status", ItemStates.Lost, true, new { @class = "horizontal-spacing" })
+                <label class="control-label">...or Found?</label>
+                @Html.RadioButton("status", ItemStates.Found, false, new { @class = "horizontal-spacing" })
 
-        <p>
-            <label>Lost...</label><br>
-            @Html.RadioButton("status", ItemStates.Lost, true)<br>
-            <label>...or Found?</label><br>
-            @Html.RadioButton("status", ItemStates.Found, false)
+            </div>
+        </div>
 
-        </p>
-        <p>
-            <label for="search">Search:</label><br>
-            <input type="search" id="search" name="search" cols="40" rows="3">
-            <input type="submit" name="searchButton" id="searchButton" value="Search">
-            <label>Or</label>
-            <input type="submit" name="addButton" id="addButton" value="Add Your Thing">
-        </p>
-        <p>@Model.Text</p>
-        @if (Model.Length > 0)
-        {
-            <header><h4>About Description Place</h4></header>
-         
+
+        <div class="form-group">
+
+            <div class="col-md-10">
+
+                <input class="btn" type="search" id="search" name="search" placeholder="Search:">
+                <input class="btn btn-info" type="submit" name="searchButton" id="searchButton" value="Search">
+                <input  class="btn btn-success" type="submit" name="addButton" id="addButton" value="Add Your Thing">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                @if (Model.Length > 0)
+            {
+                   
+
                     foreach (var p in Model.Things)
                     {
-                      <article>@Html.ActionLink(@p.About + " " + @p.Description + " " + @p.Place, "ThingInfo", "Home",  new {thingId = @p.Id}, null)</article>  
-                 
-        }  }
+                       
+                            <div class="col-sm-6 col-md-4 vertical-spacing ">
+                                <div class="thumbnail border-radius" >
+                                  
+                                    <div class="caption">
+                                        <h3>@p.About</h3>
+                                        <p>@p.Description</p>
+                                        <p>@p.Place</p>
+                                        <p>@Html.ActionLink("View", "ThingInfo", "Home", new { thingId = @p.Id }, new { @class = "btn btn-default " })</p>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                    }
+                }
+            </div>
+        </div>
+        <p>@Model.Text</p>
     </form>
 
 </body>

@@ -148,13 +148,10 @@ namespace Lost.Controllers
         public ActionResult UserProfile( string userId)
         {
 
-               User user = new User();
-            var a = User.Identity.GetUserId();
-            var b = userId;
-                user = _userlogic.GetUser(userId);
-                return View(new IndexViewModel
+            User user = new User();
+            user = _userlogic.GetUser(userId);
+            return View(new IndexViewModel
                 {
-                    //Text = thingId,
                     Id = userId,
                     UserName = user.UserName,
                     LastName = user.LastName,
