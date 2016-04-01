@@ -154,7 +154,6 @@ namespace Lost.Controllers
                 user = _userlogic.GetUser(userId);
                 return View(new IndexViewModel
                 {
-                    //Text = thingId,
                     Id = userId,
                     UserName = user.UserName,
                     LastName = user.LastName,

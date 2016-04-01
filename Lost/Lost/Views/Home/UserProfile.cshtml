@@ -11,13 +11,12 @@
 <html>
 <body style="background-color: beige; font-family: Verdana, Arial;">
     <form action="" method="post">
+        <p>@Model.Text</p>
         <p>
             @Html.ActionLink("Return", "Index", "Home", new { thingId = Model.ThingId }, null)
         </p>
    @{
        var UIGUI = User.Identity.GetUserId();
-
-
        if (Model.Id != null && UIGUI != null && Model.Id == UIGUI)
        {      
             <div class="form-group">
@@ -58,7 +57,7 @@
       
       
       
-      @*  <p>@Model.Text</p>*@
+    
        }
        else
        {
@@ -89,9 +88,10 @@
                         <input class="form-control" id="phone" name="phone" value=@Model.Phone disabled>
                     </div>
                 </div>
-       }
+       }   }
+    
 
-}
+
     </form>
 
 </body>
