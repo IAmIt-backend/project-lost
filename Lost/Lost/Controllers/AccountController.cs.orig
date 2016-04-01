@@ -89,7 +89,7 @@ namespace Lost.Controllers
                // var userId = user.Id;
                 if (result.Succeeded)
                 {
-                    var myUser = new User();
+                    var myUser = new IdentityUser2();
                     myUser.Email = model.Email;
                     myUser.UserName = model.UserName;
                     myUser.LastName = model.LastName;
@@ -124,7 +124,7 @@ namespace Lost.Controllers
             }
             base.Dispose(disposing);
         }
-        /*[HttpPost]
+        [HttpPost]
         [AllowAnonymous]
         public ActionResult RegisterSuccess(RegisterSuccessViewModel model)
         {
@@ -140,7 +140,7 @@ namespace Lost.Controllers
             {
         
             });
-        }*/
+        }
 
         #region Helpers
 

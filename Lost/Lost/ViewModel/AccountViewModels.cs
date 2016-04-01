@@ -35,5 +35,13 @@ namespace Lost.ViewModel
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+        public string Id { get; set; }
+        [Required]
+        public string UserName { get; set; }
+        [Required]
+        public string LastName { get; set; }
+        [Required]
+        public string Phone { get; set; }
     }
+  
 }

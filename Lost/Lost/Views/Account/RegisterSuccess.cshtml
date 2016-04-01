@@ -1,33 +1,7 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "RegisterSuccess";
 }
-@using (Html.BeginForm("Login", "Account", FormMethod.Post))
-{
 
-<p>Registration completed successfully</p>
+<h2>@ViewBag.Title.</h2>
 
-    <p>
-       <h3> Now complete your profile</h3>
-    </p>
-    <p>
-        <label for="fname">First name:</label><br>
-        <input id="fname" name="fname" cols="40" rows="3" required>
-    </p>
-    <p>
-        <label for="lname">Last name:</label><br>
-        <input id="lname" name="lname" cols="40" rows="3" required>
-    </p>
-    <p>
-        <label for="email">Email:</label><br>
-        <input id="email" name="email" cols="40" rows="3" required>
-    </p>
-    <p>
-        <label for="phone">Phone:</label><br> @*title == about*@
-        <input id="phone" name="phone" cols="40" rows="3" required>
-    </p>
-
-    <p>
-      <input type="submit" name="completeButton" id="completeButton" value="Complete">
-    </p>
-}
+<p>Registration completed successfully. Now you can @Html.ActionLink("login.", "Login")</p>

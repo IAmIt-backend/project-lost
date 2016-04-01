@@ -44,11 +44,11 @@ namespace DB.Repositories
         }
         public List<Thing> FindThing(string about, ItemStates states)
         {
-            return _thingCollection.AsQueryable().Where(t => t.About.Equals(about) && t.ItemStatus.Equals(states)).ToList();
+            return _thingCollection.AsQueryable().Where(t => t.About.Contains(about) && t.ItemStatus.Equals(states)).ToList();
         }
         async public Task<List<Thing> > FindThingAsync(string about, ItemStates states)
         {
-             return await _thingCollection.AsQueryable().Where(t => t.About.Equals(about) && t.ItemStatus.Equals(states)).ToListAsync();
+             return await _thingCollection.AsQueryable().Where(t => t.About.Contains(about) && t.ItemStatus.Equals(states)).ToListAsync();
         }
 
         public Thing UpdateThing(Thing thing)

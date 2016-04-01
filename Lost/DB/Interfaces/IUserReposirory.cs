@@ -10,14 +10,14 @@ namespace DB.Interfaces
 {
     public interface IUserReposirory
     {
-        IdentityUser AddUser(IdentityUser user);
-        Task<IdentityUser> AddUserAsync(IdentityUser user);
+        User AddUser(User user);
+        Task<User> AddUserAsync(User user);
 
-        IdentityUser GetUser(string id);
-        Task<IdentityUser> GetUserAsync(string id);
+        User GetUser(string id);
+        Task<User> GetUserAsync(string id);
 
-        IdentityUser UpdateUser(IdentityUser user);
-        Task<IdentityUser> UpdateUserAsync(IdentityUser user);
+        User UpdateUser(User user);
+        Task<User> UpdateUserAsync(User user);
 
     }
 }
