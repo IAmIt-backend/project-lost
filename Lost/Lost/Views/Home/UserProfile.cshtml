@@ -9,7 +9,7 @@
 @using DB.Models
 <!DOCTYPE html>
 <html>
-<body style="background-color: white; font-family: Verdana, Arial;">
+<body style="background:url(../image1.jpg);  background-size: 100%; font-family:Verdana, Arial;">
     <form class="form-horizontal" action="" method="post">
         <p>@Model.Text</p>
         <p>
@@ -27,12 +27,12 @@
                 </div>
             </div>
 
-                <div class="form-group">
-                    <label class="col-md-2 control-label" for="lname">Last name:</label>
-                    <div class="col-md-10">
-                        <input class="btn" id="lname" name="lname" value=@Model.LastName @strDisabledAttribute>
-                    </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="lname">Last name:</label>
+                <div class="col-md-10">
+                    <input class="btn" id="lname" name="lname" value=@Model.LastName @strDisabledAttribute>
                 </div>
+            </div>
 
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="email">Email:</label>

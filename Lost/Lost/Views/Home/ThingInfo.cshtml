@@ -8,15 +8,15 @@
 @using DB.Models;
 <!DOCTYPE html>
 <html>
-<body style="background-color: white; font-family: Verdana, Arial;">
+<body style="background:url(../image1.jpg);  background-size: 100%; font-family:Verdana, Arial;">
     <form class="form-horizontal" action="" method="post">
         <div class="form-group">
-              <div class="col-md-10">
+            <div class="col-md-10">
                 @Html.ActionLink("< Return", "Index", "Home", new { @class = "btn btn-default" })
             </div>
         </div>
-           
-       
+
+
         @{
             var UIGUI = User.Identity.GetUserId();
             var isMy = Model.UserId != null && UIGUI != null && Model.UserId.Equals(new ObjectId(UIGUI));
@@ -28,14 +28,14 @@
                     <input class="btn" id="status" name="status" value=@Model.Status @strDisabledAttribute>
                 </div>
             </div>
-                
-                <div class="form-group">
-                    <label class="col-md-2 control-label" for="about">Title:</label>
-                    <div class="col-md-10">
-                        <input class="btn" type="text" id="about" name="about" value=@Model.About @strDisabledAttribute>
-                    </div>
+
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="about">Title:</label>
+                <div class="col-md-10">
+                    <input class="btn" type="text" id="about" name="about" value=@Model.About @strDisabledAttribute>
                 </div>
-                
+            </div>
+
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="description">Description:</label>
                     <div class="col-md-10">
@@ -58,9 +58,9 @@
                         <input class="btn btn-warning" type="submit" name="editButton" id="editButton" value="Edit">
                     </div>
                 </div>
-              
- 
-                     
+
+
+
 
             }
 
@@ -82,4 +82,5 @@
 
 
 </body>
+
 </html>
