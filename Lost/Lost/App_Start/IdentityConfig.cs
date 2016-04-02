@@ -30,7 +30,7 @@ namespace Lost
 
             manager.PasswordValidator = new PasswordValidator
             {
-                RequiredLength = 8, 
+                RequiredLength = 6, 
                 RequireDigit = false,
                 RequireLowercase = false,
                 RequireUppercase = false,

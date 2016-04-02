@@ -7,64 +7,60 @@
     ViewBag.Title = "User Profile";
 }
 @using DB.Models
-<!DOCTYPE html>
-<html>
-<body style="background-color: beige; font-family: Verdana, Arial;">
-    <form action="" method="post">
+    <form class="form-horizontal" action="" method="post">
+        <p>@Model.Text</p>
         <p>
-            @Html.ActionLink("Return", "Index", "Home", new { thingId = Model.ThingId }, null)
+            @Html.ActionLink("< Return", "Index", "Home", new { thingId = Model.ThingId }, new { @class = "btn btn-default" })
         </p>
-   @{ 
+        @{
+            var UIGUI = User.Identity.GetUserId();
+            var isMy = Model.Id != null && UIGUI != null && Model.Id == UIGUI;
+            var strDisabledAttribute = !isMy ? "disabled" : "";
 
-      
-           if (Model.Id != null && User.Identity.GetUserId() != null && Model.Id == User.Identity.GetUserId())
-           {
-        <p>
-            <label for="fname">First name:</label><br>
-            <input type="text" id="fname" name="fname" cols="40" rows="3"  value=@Model.UserName>
-        </p>
-        <p>
-            <label for="lname">Last name:</label><br>
-            <input type="text" id="lname" name="lname" cols="40" rows="3"  value=@Model.LastName>
-        </p>
-        <p>
-            <label for="email">Email:</label><br> 
-            <input type="text" id="email" name="email" cols="40" rows="3" value=@Model.Email>
-        </p>
-        <p>
-            <label for="phone">Phone:</label><br>
-            <input type="text" id="phone" name="phone" cols="40" rows="3" value=@Model.Phone>
-        </p>
-        <p>
-            <input type="submit" name="editButton" id="editButton" value="Edit">
-        </p>
-      @*  <p>@Model.Text</p>*@
-           }
-           else
-           {
-            <p>
-                <label for="fname">First name:</label><br>
-                <input type="text" id="fname" name="fname" cols="40" rows="3" value=@Model.UserName disabled>
-            </p>
-            <p>
-                <label for="lname">Last name:</label><br>
-                <input type="text" id="lname" name="lname" cols="40" rows="3" value=@Model.LastName disabled>
-            </p>
-            <p>
-                <label for="email">Email:</label><br>
-                <input type="text" id="email" name="email" cols="40" rows="3" value=@Model.Email disabled>
-            </p>
-            <p>
-                <label for="phone">Phone:</label><br>
-                <input type="text" id="phone" name="phone" cols="40" rows="3" value=@Model.Phone disabled>
-            </p>
-            <p>
-                <input type="submit" name="editButton" id="editButton" value="Edit">
-            </p>
-       }
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="fname">First name:</label>
+                <div class="col-md-10">
+                    <input class="btn" id="fname" name="fname" value="@Model.UserName" @strDisabledAttribute>
+                </div>
+            </div>
 
-}
+            <div class="form-group">
+                <label class="col-md-2 control-label" for="lname">Last name:</label>
+                <div class="col-md-10">
+                    <input class="btn" id="lname" name="lname" value="@Model.LastName" @strDisabledAttribute>
+                </div>
+            </div>
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="email">Email:</label>
+                    <div class="col-md-10">
+                        <input class="btn" id="email" name="email" value="@Model.Email" @strDisabledAttribute>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="phone">Phone:</label>
+                    <div class="col-md-10">
+                        <input class="btn" id="phone" name="phone" value="@Model.Phone" @strDisabledAttribute>
+                    </div>
+                </div>
+            if (isMy)
+            {
+                <div class="form-group">
+                    <label class="col-md-2 control-label"></label>
+                    <div class="col-md-10">
+                        <input class="btn btn-warning" type="submit" name="editButton" id="editButton" value="Edit">
+                    </div>
+                </div>
+
+            }
+
+
+
+        }
+
+
+
+
     </form>
 
-</body>
-</html>

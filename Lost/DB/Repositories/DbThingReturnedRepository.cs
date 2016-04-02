@@ -45,12 +45,12 @@ namespace DB.Repositories
 
         public List<Thing> FindThing(string about)
         {
-            return _returnedThingCollection.AsQueryable().Where(t => t.About.Equals(about)).ToList();
+            return _returnedThingCollection.AsQueryable().Where(t => t.About.Contains(about)).ToList();
         }
 
         async public Task<List<Thing> > FindThingAsync(string about)
         {
-            return await _returnedThingCollection.AsQueryable().Where(t => t.About.Equals(about)).ToListAsync();
+            return await _returnedThingCollection.AsQueryable().Where(t => t.About.Contains(about)).ToListAsync();
         }
     }
 }

@@ -44,11 +44,18 @@ namespace DB.Repositories
         }
         public List<Thing> FindThing(string about, ItemStates states)
         {
-            return _thingCollection.AsQueryable().Where(t => t.About.Contains(about) && t.ItemStatus.Equals(states)).ToList();
+            var list = _thingCollection.AsQueryable()
+                    .Where(t => t.About.ToLower().Contains(about.ToLower()) && t.ItemStatus.Equals(states))
+                    .ToList();
+            list.Reverse();
+            return list;
         }
         async public Task<List<Thing> > FindThingAsync(string about, ItemStates states)
         {
-             return await _thingCollection.AsQueryable().Where(t => t.About.Contains(about) && t.ItemStatus.Equals(states)).ToListAsync();
+            //TODO:Сделать reverse list
+             var list = await _thingCollection.AsQueryable().Where(t => t.About.ToLower().Contains(about.ToLower()) && t.ItemStatus.Equals(states)).ToListAsync();
+            list.Reverse();
+            return list;
         }
 
         public Thing UpdateThing(Thing thing)

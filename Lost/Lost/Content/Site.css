@@ -1,6 +1,15 @@
 ﻿body {
+    background: transparent;
     padding-top: 50px;
     padding-bottom: 20px;
+    font-family:Verdana, Arial;
+}
+html {
+    background-image:url(../content/image1.jpg);
+    background-size: cover;
+    max-height: 100%;
+    max-width: 100%;
+    background-attachment: fixed;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -21,4 +30,14 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+.vertical-spacing{
+    margin: 15px 0;
+}
+.border-radius{
+    border-radius:20px;
+}
+.horizontal-spacing{
+    margin-left: 20px;
+    display: inline;
 }
