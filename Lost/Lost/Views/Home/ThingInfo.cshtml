@@ -21,28 +21,28 @@
             var strDisabledAttribute = !isMy ? "disabled" : "";
 
             <div class="form-group">
-                <label class="col-md-2 control-label" for="status">Status of thing:</label>
+                <label class="col-md-2 control-label" for="status"style = "color:white">Status of thing:</label>
                 <div class="col-md-10">
                     <input class="form-control" id="status" name="status" value="@Model.Status" @strDisabledAttribute>
                 </div>
             </div>
 
             <div class="form-group">
-                <label class="col-md-2 control-label" for="about">Title:</label>
+                <label class="col-md-2 control-label" for="about"style = "color:white">Title:</label>
                 <div class="col-md-10">
                     <input class="form-control" type="text" id="about" name="about" value="@Model.About" @strDisabledAttribute>
                 </div>
             </div>
 
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="description">Description:</label>
+                    <label class="col-md-2 control-label" for="description"style = "color:white">Description:</label>
                     <div class="col-md-10">
                         <input class="form-control" id="description" name="description" value="@Model.Description" @strDisabledAttribute>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="place">Place, where this thing was @Model.Status</label>
+                    <label class="col-md-2 control-label" for="place"style = "color:white">Place, where this thing was @Model.Status</label>
                     <div class="col-md-10">
                         <input class="form-control" id="place" name="place" value=@Model.Place @strDisabledAttribute>
                     </div>
@@ -71,7 +71,7 @@
             if (User.Identity.IsAuthenticated)
             {
 
-                @Html.ActionLink("View user page", "UserProfile", "Home", new { userId = Model.UserId }, new { @class = "btn btn-default" })  }          }
+                @Html.ActionLink("View user page", "UserProfile", "Home", new { userId = Model.UserId }, new { @class = "btn btn-success" })  }          }
         @Html.ActionLink(" ", "ThingInfo", "Home", new { thingId = Model.ThingId }, null)@*Invisible view that make our program work*@
         <p>@Model.Text</p>
 
