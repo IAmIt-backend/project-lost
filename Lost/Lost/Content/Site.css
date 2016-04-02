@@ -1,11 +1,15 @@
 ﻿body {
-    background-attachment: fixed;
+    background: transparent;
     padding-top: 50px;
     padding-bottom: 20px;
-    background:url(../content/image1.jpg);
-    -ms-background-size: 100%;
-    background-size: 100%;
     font-family:Verdana, Arial;
+}
+html {
+    background-image:url(../content/image1.jpg);
+    background-size: cover;
+    max-height: 100%;
+    max-width: 100%;
+    background-attachment: fixed;
 }
 
 /* Set padding to keep content from hitting the edges */
