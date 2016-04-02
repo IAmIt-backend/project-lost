@@ -31,9 +31,9 @@ namespace Lost
             manager.PasswordValidator = new PasswordValidator
             {
                 RequiredLength = 6, 
-                RequireDigit = true,
-                RequireLowercase = true,
-                RequireUppercase = true,
+                RequireDigit = false,
+                RequireLowercase = false,
+                RequireUppercase = false,
             };
 
             return manager;

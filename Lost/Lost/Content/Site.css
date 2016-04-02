@@ -1,6 +1,11 @@
 ﻿body {
+    background-attachment: fixed;
     padding-top: 50px;
     padding-bottom: 20px;
+    background:url(../content/image1.jpg);
+    -ms-background-size: 100%;
+    background-size: 100%;
+    font-family:Verdana, Arial;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -30,4 +35,5 @@ textarea {
 }
 .horizontal-spacing{
     margin-left: 20px;
+    display: inline;
 }
