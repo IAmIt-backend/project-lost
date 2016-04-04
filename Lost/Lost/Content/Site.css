@@ -37,6 +37,11 @@ textarea {
 .border-radius{
     border-radius:20px;
 }
+.thingsview {
+    -ms-opacity: 0.8;
+    opacity: 0.8;
+}
+
 .horizontal-spacing{
     margin-left: 20px;
     display: inline;
