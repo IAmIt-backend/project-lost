@@ -71,7 +71,18 @@
             if (User.Identity.IsAuthenticated)
             {
 
-                @Html.ActionLink("View user page", "UserProfile", "Home", new { userId = Model.UserId }, new { @class = "btn btn-success" })  }          }
+                @Html.ActionLink("View user page", "UserProfile", "Home", new {userId = Model.UserId}, new {@class = "btn btn-success"})
+            }
+            else
+            {
+
+
+                <p>
+                    @Html.ActionLink("Register a new user to see info about user", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @style = "color:white"})
+                </p>
+            }
+        }
+        }
         @Html.ActionLink(" ", "ThingInfo", "Home", new { thingId = Model.ThingId }, null)@*Invisible view that make our program work*@
         <p>@Model.Text</p>
 
